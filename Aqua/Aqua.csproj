@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Image\Assets.png" />
+    <None Remove="Image\BankChek.png" />
+    <None Remove="Image\Billan.png" />
+    <None Remove="Image\CartBank.png" />
+    <None Remove="Image\Customer.jpg" />
+    <None Remove="Image\DEBCEB.png" />
+    <None Remove="Image\Home.png" />
+    <None Remove="Image\Invoice.png" />
+    <None Remove="Image\p1.jpg" />
+    <None Remove="Image\Setting.png" />
+    <None Remove="Image\Store.png" />
+    <None Remove="Image\T.png" />
+    <None Remove="Pages\LoginPage\Aqua.jpg" />
+    <None Remove="Pages\LoginPage\LoginImages\Aqua2.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LiveCharts" Version="0.9.7" />
+    <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
+    <PackageReference Include="MahApps.Metro.IconPacks.Material" Version="4.11.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Image\Assets.png" />
+    <Resource Include="Image\BankChek.png" />
+    <Resource Include="Image\Billan.png" />
+    <Resource Include="Image\CartBank.png" />
+    <Resource Include="Image\Customer.jpg" />
+    <Resource Include="Image\DEBCEB.png" />
+    <Resource Include="Image\Home.png" />
+    <Resource Include="Image\Invoice.png" />
+    <Resource Include="Image\p1.jpg" />
+    <Resource Include="Image\Setting.png" />
+    <Resource Include="Image\Store.png" />
+    <Resource Include="Image\T.png" />
+    <Resource Include="Pages\LoginPage\LoginImages\Aqua.jpg" />
+    <Resource Include="Pages\LoginPage\LoginImages\Aqua2.jpg" />
+  </ItemGroup>
+
+</Project>

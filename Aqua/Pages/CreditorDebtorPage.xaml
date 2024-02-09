@@ -1,0 +1,57 @@
+﻿<Page x:Class="Aqua.Pages.PageCreditorDebtor"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Aqua.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="1010"
+      Title="PageCreditorDebtor">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="WhiteSmoke" CornerRadius="5 5 0 0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBox x:Name="txtSearch" Margin="0 0 10 0" Height="30" Width="300" Background="WhiteSmoke" Foreground="Black"
+                 FontSize="15" HorizontalAlignment="Center"
+                 VerticalAlignment="Center" FlowDirection="RightToLeft"
+                 VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" >
+
+                    <TextBox.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+                <TextBlock Text=":" Style="{StaticResource MenoIconText}" FontFamily="Dirooz FD" FontSize="15" VerticalAlignment="Center" Margin="0 0 5 0"/>
+                <TextBlock Text="جست و جو" Style="{StaticResource MenoIconText}" FontFamily="Dirooz FD" FontSize="15" VerticalAlignment="Center"/>
+                <Button Style="{StaticResource MenuButtonStorPage}" Width="130" Margin="5" Background="#469126" Content="اضافه کردن" FontSize="15"/>
+                <Button Style="{StaticResource MenuButtonStorPage}" Width="130" Margin="5" Background="#53ad2b" Content="تازه سازی" FontSize="15"/>
+                <Button Style="{StaticResource MenuButtonStorPage}" Width="130" Margin="5" Background="Red" Content="حذف" FontSize="15"/>
+                <Button Style="{StaticResource MenuButtonStorPage}" Width="130" Margin="5" Background="#1067aa" Content="ویرایش " FontSize="15"/>
+            </StackPanel>
+
+        </Border>
+
+        <Border CornerRadius="0 0 5 5 " Background="WhiteSmoke" Grid.Row="1">
+            <Border Grid.Column="1" Grid.Row="0" Margin="10 0 10 5">
+                <StackPanel>
+                    <DataGrid Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="5" x:Name="membersDataGrid" Height="540" MaxHeight="650" VerticalAlignment="Bottom">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="توضیحات" IsReadOnly="True" Width="*" Binding="{Binding Bank}"/>
+                            <DataGridTextColumn Header="تاریخ " IsReadOnly="True" Width="*" Binding="{Binding Bank}"/>
+                            <DataGridTextColumn Header="نوع" IsReadOnly="True" Width="*" Binding="{Binding Bank}"/>
+                            <DataGridTextColumn Header="مبلغ" IsReadOnly="True" Width="*" Binding="{Binding Price}"/>
+                            <DataGridTextColumn Header="نام" IsReadOnly="True" Width="*" Binding="{Binding Number}"/>
+                            <DataGridTextColumn x:Name="ID" Visibility="Hidden" Header="ردیف" IsReadOnly="True" Width="auto" Binding="{Binding Date}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
+            </Border>
+        </Border>
+    </Grid>
+</Page>
