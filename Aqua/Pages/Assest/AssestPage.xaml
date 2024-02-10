@@ -29,7 +29,7 @@
                 </TextBox>
                 <TextBlock Text=":" Style="{StaticResource MenoIconText}" FontFamily="Dirooz FD" FontSize="15" VerticalAlignment="Center" Margin="0 0 5 0"/>
                 <TextBlock Text="جست و جو" Style="{StaticResource MenoIconText}" FontFamily="Dirooz FD" FontSize="15" VerticalAlignment="Center"/>
-                <Button Style="{StaticResource MenuButtonStorPage}" Width="130" Margin="5" Background="#469126" Content="اضافه کردن دارایی جدید" FontSize="11"/>
+                <Button Style="{StaticResource MenuButtonStorPage}" Width="130" Margin="5" Background="#469126" Content="اضافه کردن دارایی" FontSize="11"/>
                 <Button Style="{StaticResource MenuButtonStorPage}" Width="130" Margin="5" Background="#53ad2b" Content="تازه سازی" FontSize="15"/>
                 <Button Style="{StaticResource MenuButtonStorPage}" Width="130" Margin="5" Background="Red" Content="حذف دارایی" FontSize="15"/>
                 <Button Style="{StaticResource MenuButtonStorPage}" Width="130" Margin="5" Background="#1067aa" Content="ویرایش دارایی" FontSize="15"/>

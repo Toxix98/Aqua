@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Aqua.Pages"
         mc:Ignorable="d"
         Title="SalesInvoicePage" Height="650" Width="1010" WindowStartupLocation="CenterScreen" WindowStyle="None" Background="Transparent" AllowsTransparency="True" MouseDown="Window_MouseDown">
-    
+
     <Border Background="WhiteSmoke">
         <Grid>
 
@@ -35,8 +35,7 @@
                     <TextBox x:Name="txtSearch" Margin="350,10,0,0" Height="27" Width="190" Background="WhiteSmoke" Foreground="Black"
             FontSize="13" HorizontalAlignment="Left"
             VerticalAlignment="Top" FlowDirection="RightToLeft"
-            VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" >
-
+            VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontFamily="Dirooz FD" BorderBrush="#3a3a3a">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>

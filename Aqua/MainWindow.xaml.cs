@@ -77,7 +77,7 @@ namespace Aqua
 
         private void btnAssets_Click(object sender, RoutedEventArgs e)
         {
-            fContainer.Navigate(new System.Uri("Pages/AssestPage.xaml", UriKind.RelativeOrAbsolute));
+            fContainer.Navigate(new System.Uri("Pages/Assest/AssestPage.xaml", UriKind.RelativeOrAbsolute));
         }
 
 
@@ -100,6 +100,11 @@ namespace Aqua
         {
             SalesInvoicePage page = new SalesInvoicePage();
             page.ShowDialog();
+        }
+
+        private void btnSetting_Click(object sender, RoutedEventArgs e)
+        {
+            fContainer.Navigate(new System.Uri("Pages/Settingpage.xaml", UriKind.RelativeOrAbsolute));
         }
     }
 }

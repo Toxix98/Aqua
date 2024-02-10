@@ -85,7 +85,7 @@
                             </DockPanel>
                         </Button>
 
-                        <Button x:Name="btnSetting" Style="{StaticResource MenuButton}">
+                        <Button x:Name="btnSetting" Style="{StaticResource MenuButton}" Click="btnSetting_Click">
                             <DockPanel>
                                 <Image Source="Image/Setting.png" Width="35" DockPanel.Dock="Right" Margin="10 0 0 0"/>
                                 <TextBlock Text="تنظیمات" VerticalAlignment="Center" Margin="13,0,0,0"/>

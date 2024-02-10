@@ -32,6 +32,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Pages\Assest\AssestImage\123.png" />
     <Resource Include="Image\Assets.png" />
     <Resource Include="Image\BankChek.png" />
     <Resource Include="Image\Billan.png" />
