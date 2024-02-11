@@ -64,14 +64,14 @@
                             </DockPanel>
                         </Button>
 
-                        <Button x:Name="btnDetebtor" Style="{StaticResource MenuButton}">
+                        <Button x:Name="btnDetebtor" Style="{StaticResource MenuButton}" Click="btnDetebtor_Click">
                             <DockPanel>
                                 <Image Source="Image/DEBCEB.png" Width="35" DockPanel.Dock="Right" Margin="10 0 0 0"/>
                                 <TextBlock Text="بدهکار بستانکار" VerticalAlignment="Center" Margin="13,0,0,0"/>
                             </DockPanel>
                         </Button>
 
-                        <Button x:Name="btnBack" Style="{StaticResource MenuButton}">
+                        <Button x:Name="btnBack" Style="{StaticResource MenuButton}" Click="btnBack_Click">
                             <DockPanel>
                                 <Image Source="Image/CartBank.png" Width="35" DockPanel.Dock="Right" Margin="10 0 0 0"/>
                                 <TextBlock Text="حساب‌های بانکی" VerticalAlignment="Center" Margin="13,0,0,0"/>

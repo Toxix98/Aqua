@@ -106,5 +106,15 @@ namespace Aqua
         {
             fContainer.Navigate(new System.Uri("Pages/Settingpage.xaml", UriKind.RelativeOrAbsolute));
         }
+
+        private void btnDetebtor_Click(object sender, RoutedEventArgs e)
+        {
+            fContainer.Navigate(new System.Uri("Pages/CreditorDebtorPage.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            fContainer.Navigate(new System.Uri("Pages/BanckAccountPage.xaml", UriKind.RelativeOrAbsolute));
+        }
     }
 }
