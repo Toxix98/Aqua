@@ -14,20 +14,17 @@ using Aqua;
 
 namespace Aqua
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public int id = -1;
         public MainWindow()
         {
             InitializeComponent();
-            //if (id == -1)
-            //{
-            //    LoginPage loginPage = new LoginPage(this);
-            //    loginPage.ShowDialog();
-            //}
+            if (id == -1)
+            {
+                LoginPage loginPage = new LoginPage(this);
+                loginPage.ShowDialog();
+            }
         }
 
 
@@ -62,33 +59,33 @@ namespace Aqua
 
         private void btnHome_Click(object sender, RoutedEventArgs e)
         {
-            fContainer.Navigate(new System.Uri("Pages/HomePage.xaml", UriKind.RelativeOrAbsolute));
+            fContainer.Navigate(new System.Uri("MVVM/Views/HomePage.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void btnStor_Click(object sender, RoutedEventArgs e)
         {
-            fContainer.Navigate(new System.Uri("Pages/Store.xaml", UriKind.RelativeOrAbsolute));
+            fContainer.Navigate(new System.Uri("MVVM/Views/Store.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void btnCustomers_Click(object sender, RoutedEventArgs e)
         {
-            fContainer.Navigate(new System.Uri("Pages/CustomerPage.xaml", UriKind.RelativeOrAbsolute));
+            fContainer.Navigate(new System.Uri("MVVM/Views/CustomerPage.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void btnAssets_Click(object sender, RoutedEventArgs e)
         {
-            fContainer.Navigate(new System.Uri("Pages/Assest/AssestPage.xaml", UriKind.RelativeOrAbsolute));
+            fContainer.Navigate(new System.Uri("MVVM/Views/AssestPage.xaml", UriKind.RelativeOrAbsolute));
         }
 
 
         private void btnBankChek_Click_1(object sender, RoutedEventArgs e)
         {
-            fContainer.Navigate(new System.Uri("Pages/ChekPage.xaml", UriKind.RelativeOrAbsolute));
+            fContainer.Navigate(new System.Uri("MVVM/Views/ChekPage.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void btnBillan_Click(object sender, RoutedEventArgs e)
         {
-            fContainer.Navigate(new System.Uri("Pages/Billan.xaml", UriKind.RelativeOrAbsolute));
+            fContainer.Navigate(new System.Uri("MVVM/Views/Billan.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -104,17 +101,17 @@ namespace Aqua
 
         private void btnSetting_Click(object sender, RoutedEventArgs e)
         {
-            fContainer.Navigate(new System.Uri("Pages/Settingpage.xaml", UriKind.RelativeOrAbsolute));
+            fContainer.Navigate(new System.Uri("MVVM/Views/Settingpage.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void btnDetebtor_Click(object sender, RoutedEventArgs e)
         {
-            fContainer.Navigate(new System.Uri("Pages/CreditorDebtorPage.xaml", UriKind.RelativeOrAbsolute));
+            fContainer.Navigate(new System.Uri("MVVM/Views/CreditorDebtorPage.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            fContainer.Navigate(new System.Uri("Pages/BanckAccountPage.xaml", UriKind.RelativeOrAbsolute));
+            fContainer.Navigate(new System.Uri("MVVM/Views/BanckAccountPage.xaml", UriKind.RelativeOrAbsolute));
         }
     }
 }

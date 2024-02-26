@@ -21,8 +21,6 @@
     <None Remove="Image\Setting.png" />
     <None Remove="Image\Store.png" />
     <None Remove="Image\T.png" />
-    <None Remove="Pages\LoginPage\Aqua.jpg" />
-    <None Remove="Pages\LoginPage\LoginImages\Aqua2.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,7 +30,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Pages\Assest\AssestImage\123.png" />
     <Resource Include="Image\Assets.png" />
     <Resource Include="Image\BankChek.png" />
     <Resource Include="Image\Billan.png" />
@@ -45,8 +42,12 @@
     <Resource Include="Image\Setting.png" />
     <Resource Include="Image\Store.png" />
     <Resource Include="Image\T.png" />
-    <Resource Include="Pages\LoginPage\LoginImages\Aqua.jpg" />
-    <Resource Include="Pages\LoginPage\LoginImages\Aqua2.jpg" />
+    <Resource Include="Resource\Images\Aqua2.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="MVVM\Models\" />
+    <Folder Include="MVVM\ViewModels\" />
   </ItemGroup>
 
 </Project>

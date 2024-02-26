@@ -12,7 +12,7 @@
             </Grid.ColumnDefinitions>
 
             <Border Grid.Column="0" Background="#4164e2" CornerRadius="10 0 0 10">
-                <Image Source="/Pages/LoginPage/LoginImages/Aqua2.jpg"/>
+                <Image Source="/Resource/Images/Aqua2.jpg"/>
             </Border>
 
             <Border Grid.Column="1" Background="WhiteSmoke" CornerRadius="0 10 10 0">
