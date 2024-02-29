@@ -45,6 +45,7 @@
                             <DataGridTextColumn Header="توضیحات" IsReadOnly="True" Width="*" Binding="{Binding Bank}"/>
 
                             <DataGridTextColumn Header="تعداد کالا" IsReadOnly="True" Width="*" Binding="{Binding Bank}"/>
+                            <DataGridTextColumn Header="قیمت کالا" IsReadOnly="True" Width="*" Binding="{Binding Bank}"/>
                             <DataGridTextColumn Header="نوع کالا" IsReadOnly="True" Width="*" Binding="{Binding Bank}"/>
                             <DataGridTextColumn Header="کد کالا" IsReadOnly="True" Width="*" Binding="{Binding Price}"/>
                             <DataGridTextColumn Header="نام محصول" IsReadOnly="True" Width="*" Binding="{Binding Number}"/>
