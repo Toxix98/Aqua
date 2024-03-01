@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace Aqua.Abstarctions
 {
-    public interface IBaseRepo<T> : IDisposable where T :class, new()
+    public interface IBaseRepo<T> : IDisposable where T : class
     {
         void AddItem(T item);
         T GetItem(int id);
         List<T> GetItems();
         void DeletItem(T item);
+        void UpdateItem(T item);
     }
 }

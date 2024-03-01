@@ -51,8 +51,4 @@
     <Resource Include="Resource\Images\Aqua2.jpg" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="MVVM\ViewModels\" />
-  </ItemGroup>
-
 </Project>

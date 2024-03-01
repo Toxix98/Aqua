@@ -1,0 +1,107 @@
+﻿<Window x:Class="Aqua.MVVM.Views.StoreAddOrUpdate"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Aqua.MVVM.Views"
+        mc:Ignorable="d" Height="250" Width="600" WindowStartupLocation="CenterScreen"
+        WindowStyle="None" AllowsTransparency="True" Background="#edfefa">
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        
+        <StackPanel Grid.Column="3" Margin="0 20 0 0">
+            <Label Content=": نام کالا" Margin="0 10 0 0" FontFamily="Dirooz FD" Foreground="Red"/>
+            <Label Content=": کد کالا" Margin="0 30 0 0" FontFamily="Dirooz FD" Foreground="Red"/>
+            <Label Content=": نوع کالا" Margin="0 30 0 0" FontFamily="Dirooz FD" Foreground="Red"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="2" Margin="0 20 0 0">
+            <TextBox x:Name="txtProductName" Margin="0 10 0 0" Height="30" Width="200" Background="WhiteSmoke" Foreground="Black"
+            FontSize="15" HorizontalAlignment="Center"
+            VerticalAlignment="Center" FlowDirection="RightToLeft"
+            VerticalContentAlignment="Center" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" Text="{Binding txtProductName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+
+            <TextBox x:Name="txtProductCode" Margin="0 30 0 0" Height="30" Width="200" Background="WhiteSmoke" Foreground="Black"
+              FontSize="15" HorizontalAlignment="Center"
+              VerticalAlignment="Center" FlowDirection="RightToLeft"
+              VerticalContentAlignment="Center" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" Text="{Binding txtProductCode, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+
+            <TextBox x:Name="txtProductType" Margin="0 30 0 0" Height="30" Width="200" Background="WhiteSmoke" Foreground="Black"
+              FontSize="15" HorizontalAlignment="Center"
+              VerticalAlignment="Center" FlowDirection="RightToLeft"
+              VerticalContentAlignment="Center" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" Text="{Binding txtProductType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+
+            <Button x:Name="btnSave" Grid.Column="2" Width="100" Height="40" Margin="0,15,0,0" Style="{StaticResource ButtonStyle}" Background="Green" Content="افزودن کالای جدید" Foreground="White" FontFamily="Dirooz FD" Click="Button_Click_1"/>
+
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Margin="0 20 20 0">
+            <Label Content=": قیمت کالا" Margin="0 10 0 0" FontFamily="Dirooz FD" Foreground="Red"/>
+            <Label Content=": تعداد کالا" Margin="0 30 0 0" FontFamily="Dirooz FD" Foreground="Red"/>
+            <Label Content=": توضیحات" Margin="0 30 0 0" FontFamily="Dirooz FD" />
+        </StackPanel>
+
+        <StackPanel Grid.Column="0" Margin="45 20 0 0">
+            <TextBox x:Name="txtProductPrice" Margin="0 10 0 0" Height="30" Width="200" Background="WhiteSmoke" Foreground="Black"
+              FontSize="15" HorizontalAlignment="Center"
+              VerticalAlignment="Center" FlowDirection="RightToLeft"
+              VerticalContentAlignment="Center" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" Text="{Binding txtProductPrice, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+
+            <TextBox x:Name="txtProductCount" Margin="0 30 0 0" Height="30" Width="200" Background="WhiteSmoke" Foreground="Black"
+              FontSize="15" HorizontalAlignment="Center"
+              VerticalAlignment="Center" FlowDirection="RightToLeft"
+              VerticalContentAlignment="Center" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" Text="{Binding txtProductCount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+
+            <TextBox x:Name="txtProductDescriptions" Margin="0 30 0 0" Height="30" Width="200" Background="WhiteSmoke" Foreground="Black"
+      FontSize="15" HorizontalAlignment="Center"
+      VerticalAlignment="Center" FlowDirection="RightToLeft"
+      VerticalContentAlignment="Center" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" Text="{Binding txtProductDescriptions, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+
+            <Button Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="100" Height="40" Margin="0,15,0,0" Style="{StaticResource ButtonStyle}" Background="Red" Content="منصرف شدن" Foreground="White" FontFamily="Dirooz FD" Click="Button_Click"/>
+        </StackPanel>
+            
+    </Grid>
+</Window>
