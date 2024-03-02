@@ -2,6 +2,7 @@
 using Aqua.MVVM.Models;
 using Aqua.MVVM.ViewModels;
 using Aqua.MVVM.Views;
+using Aqua.Repository;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -26,13 +27,14 @@ namespace Aqua.Pages.LoginPage
     {
         private StoreViewModel _viewModel;
         private StoreAddOrUpdate storeAddOrUpdate;
-        public Store(StoreAddOrUpdate StoreAddOrUpdate)
+        public int IDUPDate = 0;
+        public Store()
         {
             InitializeComponent();
-            this.storeAddOrUpdate = StoreAddOrUpdate;
 
             _viewModel = new StoreViewModel();
             DataContext = _viewModel;
+            storeAddOrUpdate = new StoreAddOrUpdate();
 
             FillDataGrid();
         }
@@ -41,6 +43,8 @@ namespace Aqua.Pages.LoginPage
         {
             StoreAddOrUpdate StoreAddOrUpdate = new StoreAddOrUpdate();
             StoreAddOrUpdate.ShowDialog();
+            BindGrid();
+
         }
 
         public void FillDataGrid()
@@ -69,18 +73,43 @@ namespace Aqua.Pages.LoginPage
         {
         }
 
+        void BindGrid()
+        {
+            StoreDataGrid.AutoGenerateColumns = false;
+            StoreDataGrid.ItemsSource = _viewModel.GetStore();
+        }
+
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             if (StoreDataGrid.SelectedItem != null)
             {
                 Aqua.MVVM.Models.Store store = StoreDataGrid.SelectedItem as Aqua.MVVM.Models.Store;
-                storeAddOrUpdate.ProductStoreID = store.Id;
+                IDUPDate = Convert.ToInt32(store.Id);
 
-                if (storeAddOrUpdate.ShowDialog() == true)
-                {
-                    FillDataGrid();
-                }
+                storeAddOrUpdate = new StoreAddOrUpdate();
+                storeAddOrUpdate.ProductStoreID = IDUPDate;
+                storeAddOrUpdate.ShowDialog();
+                BindGrid();
             }
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            //Store store = sender as Store;
+            //if (store != null)
+            //{
+            //    store.Initialize(new StoreAddOrUpdate(), ProductStoreID);
+            //}
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            BindGrid();
+        }
+
+        private void txtSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            StoreDataGrid.ItemsSource = _viewModel.GetStoreItemByfilter(txtSearch.Text);
         }
     }
 }

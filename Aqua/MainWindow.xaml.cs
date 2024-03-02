@@ -20,11 +20,11 @@ namespace Aqua
         public MainWindow()
         {
             InitializeComponent();
-            if (id == -1)
-            {
-                LoginPage loginPage = new LoginPage(this);
-                loginPage.ShowDialog();
-            }
+            //if (id == -1)
+            //{
+            //    LoginPage loginPage = new LoginPage(this);
+            //    loginPage.ShowDialog();
+            //}
         }
 
 
@@ -64,7 +64,7 @@ namespace Aqua
 
         private void btnStor_Click(object sender, RoutedEventArgs e)
         {
-            fContainer.Navigate(new System.Uri("MVVM/Views/Store.xaml", UriKind.RelativeOrAbsolute));
+            fContainer.Navigate(new System.Uri("MVVM/Views/StorePages/Store.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void btnCustomers_Click(object sender, RoutedEventArgs e)

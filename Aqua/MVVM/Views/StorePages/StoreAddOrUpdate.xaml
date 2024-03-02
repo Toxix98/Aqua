@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Aqua.MVVM.Views"
         mc:Ignorable="d" Height="250" Width="600" WindowStartupLocation="CenterScreen"
-        WindowStyle="None" AllowsTransparency="True" Background="#edfefa">
+        WindowStyle="None" AllowsTransparency="True" Background="#edfefa" Loaded="Window_Loaded">
     
     <Grid>
         <Grid.ColumnDefinitions>
@@ -26,7 +26,7 @@
             <TextBox x:Name="txtProductName" Margin="0 10 0 0" Height="30" Width="200" Background="WhiteSmoke" Foreground="Black"
             FontSize="15" HorizontalAlignment="Center"
             VerticalAlignment="Center" FlowDirection="RightToLeft"
-            VerticalContentAlignment="Center" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" Text="{Binding txtProductName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            VerticalContentAlignment="Center" FontFamily="Dirooz FD" BorderBrush="#3a3a3a">
                 <TextBox.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -37,7 +37,7 @@
             <TextBox x:Name="txtProductCode" Margin="0 30 0 0" Height="30" Width="200" Background="WhiteSmoke" Foreground="Black"
               FontSize="15" HorizontalAlignment="Center"
               VerticalAlignment="Center" FlowDirection="RightToLeft"
-              VerticalContentAlignment="Center" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" Text="{Binding txtProductCode, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+              VerticalContentAlignment="Center" FontFamily="Dirooz FD" BorderBrush="#3a3a3a">
                 <TextBox.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -48,7 +48,7 @@
             <TextBox x:Name="txtProductType" Margin="0 30 0 0" Height="30" Width="200" Background="WhiteSmoke" Foreground="Black"
               FontSize="15" HorizontalAlignment="Center"
               VerticalAlignment="Center" FlowDirection="RightToLeft"
-              VerticalContentAlignment="Center" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" Text="{Binding txtProductType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+              VerticalContentAlignment="Center" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" >
                 <TextBox.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -70,7 +70,7 @@
             <TextBox x:Name="txtProductPrice" Margin="0 10 0 0" Height="30" Width="200" Background="WhiteSmoke" Foreground="Black"
               FontSize="15" HorizontalAlignment="Center"
               VerticalAlignment="Center" FlowDirection="RightToLeft"
-              VerticalContentAlignment="Center" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" Text="{Binding txtProductPrice, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+              VerticalContentAlignment="Center" FontFamily="Dirooz FD" BorderBrush="#3a3a3a">
                 <TextBox.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -81,7 +81,7 @@
             <TextBox x:Name="txtProductCount" Margin="0 30 0 0" Height="30" Width="200" Background="WhiteSmoke" Foreground="Black"
               FontSize="15" HorizontalAlignment="Center"
               VerticalAlignment="Center" FlowDirection="RightToLeft"
-              VerticalContentAlignment="Center" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" Text="{Binding txtProductCount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+              VerticalContentAlignment="Center" FontFamily="Dirooz FD" BorderBrush="#3a3a3a">
                 <TextBox.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -92,7 +92,7 @@
             <TextBox x:Name="txtProductDescriptions" Margin="0 30 0 0" Height="30" Width="200" Background="WhiteSmoke" Foreground="Black"
       FontSize="15" HorizontalAlignment="Center"
       VerticalAlignment="Center" FlowDirection="RightToLeft"
-      VerticalContentAlignment="Center" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" Text="{Binding txtProductDescriptions, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+      VerticalContentAlignment="Center" FontFamily="Dirooz FD" BorderBrush="#3a3a3a">
                 <TextBox.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>

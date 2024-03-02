@@ -1,4 +1,5 @@
-﻿using Aqua.Data;
+﻿using Aqua.Abstarctions;
+using Aqua.Data;
 using Aqua.MVVM.Models;
 using Aqua.Repository;
 using System;
@@ -28,11 +29,18 @@ namespace Aqua.MVVM.ViewModels
         }
 
         private BaseRepo<Store> _storRepo;
+        private StoreRepo _storeRepo;
 
         public StoreViewModel()
         {
             _storRepo = new BaseRepo<Store>(new AquaJoyDBContext());
+            _storeRepo = new StoreRepo(new AquaJoyDBContext());
             StoreItems = new ObservableCollection<Store>(_storRepo.GetItems());
+        }
+
+        public List<Store> GetStore()
+        {
+            return _storRepo.GetItems();
         }
 
         public void AddItem(Store newItem)
@@ -49,27 +57,35 @@ namespace Aqua.MVVM.ViewModels
             return true;
         }
 
+        public IEnumerable<Store> GetStoreItemByfilter(string parameter)
+        {
+            return _storeRepo.GetStoreItemByFilter(parameter);
+        }
+
         public Store GetStorProduct(int Id)
         {
            return _storRepo.GetItem(Id);
         }
 
-        public void SaveProduct(string txtPN, string txtPC, string txtPP,
-            string txtPD, string txtPCO, string txtPY, int ID)
+        public void BindGrid()
         {
+            _storRepo.GetItems();
+        }
 
-            Store Item = new Store()
+        public void SaveProduct(string txtPN, string txtPC, string txtPP, string txtPD, string txtPCO, string txtPY, int ID)
+        {
+            if (ID == 0)
             {
-                ProductName = txtPN,
-                CountOfProduct = int.Parse(txtPC),
-                Price = int.Parse(txtPP),
-                Description = txtPD,
-                ProductCode = txtPCO,
-                Productype = txtPY,
-            };
+                Store Item = new Store()
+                {
+                    ProductName = txtPN,
+                    CountOfProduct = int.Parse(txtPC),
+                    Price = int.Parse(txtPP),
+                    Description = txtPD,
+                    ProductCode = txtPCO,
+                    Productype = txtPY,
+                };
 
-            if(ID == 0 )
-            {
                 _storRepo.AddItem(Item);
                 StoreItems.Add(Item);
                 Application.Current.Dispatcher.Invoke(() =>
@@ -79,9 +95,23 @@ namespace Aqua.MVVM.ViewModels
             }
             else
             {
-                Item.Id = ID;
-                _storRepo.UpdateItem(Item);
-                StoreItems.Add(Item);
+                var existingItem = StoreItems.FirstOrDefault(i => i.Id == ID);
+                if (existingItem != null)
+                {
+                    existingItem.ProductName = txtPN;
+                    existingItem.CountOfProduct = int.Parse(txtPC);
+                    existingItem.Price = int.Parse(txtPP);
+                    existingItem.Description = txtPD;
+                    existingItem.ProductCode = txtPCO;
+                    existingItem.Productype = txtPY;
+
+                    _storeRepo.UpdateStore(existingItem);
+                    _storeRepo.Save();
+                    Application.Current.Dispatcher.Invoke(() =>
+                    {
+                        MessageBox.Show("کالا با موفقیت به روزرسانی شد", "پیام", MessageBoxButton.OK, MessageBoxImage.Information);
+                    });
+                }
             }
         }
 
