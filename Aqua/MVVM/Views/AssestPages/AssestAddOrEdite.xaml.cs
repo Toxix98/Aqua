@@ -68,5 +68,13 @@ namespace Aqua.MVVM.Views.Assest
                 txtDateOfByeAssest.Text = AssestItem.SearchDate; 
             }
         }
+
+        private void txtAssestPrice_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if(!char.IsDigit(e.Text, 0))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
