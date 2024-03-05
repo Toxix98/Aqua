@@ -111,7 +111,7 @@ namespace Aqua
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            fContainer.Navigate(new System.Uri("MVVM/Views/BanckAccountPage.xaml", UriKind.RelativeOrAbsolute));
+            fContainer.Navigate(new System.Uri("MVVM/Views/BanckAccountPages/BanckAccountPage.xaml", UriKind.RelativeOrAbsolute));
         }
     }
 }

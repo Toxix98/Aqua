@@ -54,5 +54,21 @@ namespace Aqua.MVVM.Views
                 txtProductType.Text = ProductDet.Productype;
             }
         }
+
+        private void txtProductPrice_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            if(!char.IsDigit(e.Text, 0))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtProductCount_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            if (!char.IsDigit(e.Text, 0))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
