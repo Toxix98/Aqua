@@ -23,7 +23,13 @@ namespace Aqua.MVVM.Models
         [MaxLength(800)]
         public string? Address { get; set; }
 
+        [MaxLength(150)]
+        public string SearchDateOfWork { get; set; }
+
         public DateTime DateOfWork { get; set; }
+
+        [MaxLength(150)]
+        public string SearchNextVisitDate { get; set; }
 
         public DateTime NextVisitDate { get; set; }
 

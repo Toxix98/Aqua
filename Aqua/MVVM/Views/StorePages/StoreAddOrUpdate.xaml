@@ -100,7 +100,7 @@
                 </TextBox.Resources>
             </TextBox>
 
-            <Button Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="100" Height="40" Margin="0,15,0,0" Style="{StaticResource ButtonStyle}" Background="Red" Content="منصرف شدن" Foreground="White" FontFamily="Dirooz FD" Click="Button_Click"/>
+            <Button Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="100" Height="40" Margin="0,15,0,0" Style="{StaticResource ButtonStyle}" Background="Red" Content="بستن" Foreground="White" FontFamily="Dirooz FD" Click="Button_Click"/>
         </StackPanel>
             
     </Grid>

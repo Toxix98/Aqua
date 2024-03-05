@@ -21,6 +21,9 @@ namespace Aqua.MVVM.Models
 
         public decimal TotalPrice { get; set; }
 
+        [MaxLength(150)]
+        public string SearchDatePurchaseInvoice { get; set; }
+
         public DateTime DateOfPurchase { get; set; }
 
         public int ProductPurchaseCount { get; set; }

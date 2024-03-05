@@ -40,7 +40,7 @@
         <Border CornerRadius="0 0 5 5 " Background="WhiteSmoke" Grid.Row="1">
             <Border Grid.Column="1" Grid.Row="0" Margin="10 0 10 5">
                 <StackPanel>
-                    <DataGrid Style="{StaticResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" Grid.Row="5" x:Name="StoreDataGrid" Height="540" MaxHeight="650" SelectedItem="{Binding Path=SelectedStore, Mode=TwoWay}" SelectionChanged="StoreDataGrid_SelectionChanged" AutoGenerateColumns="false">
+                    <DataGrid Style="{StaticResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" Grid.Row="5" x:Name="StoreDataGrid" Height="540" MaxHeight="650" SelectedItem="{Binding Path=SelectedStore, Mode=TwoWay}" SelectionChanged="StoreDataGrid_SelectionChanged" AutoGenerateColumns="false" RowStyle="{DynamicResource DataGridRowStyle1}">
                         <DataGrid.Columns>
                             <DataGridTextColumn x:Name="ProDescription" Header="توضیحات" IsReadOnly="True" Width="*" Binding="{Binding Description}"/>
                             <DataGridTextColumn x:Name="ProCount" Header="تعداد کالا" IsReadOnly="True" Width="*" Binding="{Binding CountOfProduct}"/>
@@ -50,17 +50,6 @@
                             <DataGridTextColumn x:Name="ProName" Header="نام محصول" IsReadOnly="True" Width="*" Binding="{Binding ProductName}"/>
                             <DataGridTextColumn x:Name="ID" Visibility="Hidden" Header="ردیف" IsReadOnly="True" Width="auto" Binding="{Binding Id}"/>
                         </DataGrid.Columns>
-                        <DataGrid.RowStyle>
-                            <Style TargetType="DataGridRow">
-                                <Style.Triggers>
-                                    <Trigger Property="IsSelected" Value="True">
-                                        <Setter Property="Background" Value="#02364a"/>
-                                        <Setter Property="Foreground" Value="#ffffff"/>
-                                        <Setter Property="FontFamily" Value="Dirooz FD"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </DataGrid.RowStyle>
                     </DataGrid>
                 </StackPanel>
             </Border>

@@ -1,0 +1,83 @@
+﻿<Window x:Class="Aqua.MVVM.Views.Assest.AssestAddOrEdite"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Aqua.MVVM.Views.Assest"
+        mc:Ignorable="d" Height="200" Width="600" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="Transparent" Loaded="Window_Loaded">
+    <Border CornerRadius="5" Background="#edfefa">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="3" Margin="0 20 0 0">
+                <Label Content=": نام دارایی" Margin="0 10 0 0" FontFamily="Dirooz FD" Foreground="Red"/>
+                <Label Content=": مبلغ دارایی" Margin="0 30 0 0" FontFamily="Dirooz FD" Foreground="Red"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2" Margin="0 20 0 0">
+                <TextBox x:Name="txtAssesName" Margin="0 10 0 0" Height="30" Width="200" Background="WhiteSmoke" Foreground="Black"
+    FontSize="15" HorizontalAlignment="Center"
+    VerticalAlignment="Center" FlowDirection="RightToLeft"
+    VerticalContentAlignment="Center" FontFamily="Dirooz FD" BorderBrush="#3a3a3a">
+                    <TextBox.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+
+                <TextBox x:Name="txtAssestPrice" Margin="0 30 0 0" Height="30" Width="200" Background="WhiteSmoke" Foreground="Black"
+      FontSize="15" HorizontalAlignment="Center"
+      VerticalAlignment="Center" FlowDirection="RightToLeft"
+      VerticalContentAlignment="Center" FontFamily="Dirooz FD" BorderBrush="#3a3a3a">
+                    <TextBox.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+
+
+                <Button x:Name="btnSave" Grid.Column="2" Width="110" Height="40" Margin="0,15,0,0" Style="{StaticResource ButtonStyle}" Background="Green" Content="افزودن دارایی جدید" Foreground="White" FontFamily="Dirooz FD" Click="btnSave_Click"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Margin="0 20 0 0">
+                <Label Content=": تاریخ خرید دارایی" Margin="0 10 0 0" FontFamily="Dirooz FD" Foreground="Red"/>
+                <Label Content=": نوع دارایی" Margin="0 30 0 0" FontFamily="Dirooz FD"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="0" Margin="15 20 0 0">
+                <TextBox x:Name="txtDateOfByeAssest" Margin="0 10 0 0" Height="30" Width="200" Background="WhiteSmoke" Foreground="Black"
+FontSize="15" HorizontalAlignment="Center"
+VerticalAlignment="Center" FlowDirection="RightToLeft"
+VerticalContentAlignment="Center" FontFamily="Dirooz FD" BorderBrush="#3a3a3a">
+                    <TextBox.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+
+                <TextBox x:Name="txtAssestType" Margin="0 30 0 0" Height="30" Width="200" Background="WhiteSmoke" Foreground="Black"
+FontSize="15" HorizontalAlignment="Center"
+VerticalAlignment="Center" FlowDirection="RightToLeft"
+VerticalContentAlignment="Center" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" >
+                    <TextBox.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+
+                <Button Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="100" Height="40" Margin="0,15,0,0" Style="{StaticResource ButtonStyle}" Background="Red" Content="بستن" Foreground="White" FontFamily="Dirooz FD" Click="Button_Click"/>
+
+            </StackPanel>
+
+        </Grid>
+    </Border>
+</Window>

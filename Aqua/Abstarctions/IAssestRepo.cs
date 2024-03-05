@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Aqua.Abstarctions
 {
-    public interface ICustomerRepo
+    public interface IAssestRepo
     {
-        IEnumerable<Customers> GetCustomerByFilter(string parameter);
-        bool UpdateCustomers(Customers customers);
+        IEnumerable<Assests> GetAssestsByFilter(string parameter);
+        bool UpdateAssest(Assests assest);
     }
 }

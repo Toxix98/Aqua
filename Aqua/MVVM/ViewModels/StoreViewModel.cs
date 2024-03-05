@@ -43,12 +43,6 @@ namespace Aqua.MVVM.ViewModels
             return _storRepo.GetItems();
         }
 
-        public void AddItem(Store newItem)
-        {
-            _storRepo.AddItem(newItem);
-            StoreItems.Add(newItem);
-        }
-
         public bool DeletItem(int ID)
         {
             var product = _storRepo.GetItem(ID);
@@ -59,17 +53,12 @@ namespace Aqua.MVVM.ViewModels
 
         public IEnumerable<Store> GetStoreItemByfilter(string parameter)
         {
-            return _storeRepo.GetStoreItemByFilter(parameter);
+            return _storeRepo.GetStoreItemByFilter(parameter).ToList();
         }
 
         public Store GetStorProduct(int Id)
         {
            return _storRepo.GetItem(Id);
-        }
-
-        public void BindGrid()
-        {
-            _storRepo.GetItems();
         }
 
         public void SaveProduct(string txtPN, string txtPC, string txtPP, string txtPD, string txtPCO, string txtPY, int ID)
@@ -105,12 +94,22 @@ namespace Aqua.MVVM.ViewModels
                     existingItem.ProductCode = txtPCO;
                     existingItem.Productype = txtPY;
 
-                    _storeRepo.UpdateStore(existingItem);
-                    _storeRepo.Save();
-                    Application.Current.Dispatcher.Invoke(() =>
+                    if (txtPC == "" || txtPCO == "" || txtPN == "" || txtPP == "" || txtPY == "")
                     {
-                        MessageBox.Show("کالا با موفقیت به روزرسانی شد", "پیام", MessageBoxButton.OK, MessageBoxImage.Information);
-                    });
+                        Application.Current.Dispatcher.Invoke(() =>
+                        {
+                            MessageBox.Show("لطفا تمامی فیلد هارا پر نمایید", "خطا", MessageBoxButton.OK, MessageBoxImage.Error);
+                        });
+                    }
+                    else
+                    {
+                        _storeRepo.UpdateStore(existingItem);
+                        _storeRepo.Save();
+                        Application.Current.Dispatcher.Invoke(() =>
+                        {
+                            MessageBox.Show("کالا با موفقیت به روزرسانی شد", "پیام", MessageBoxButton.OK, MessageBoxImage.Information);
+                        });
+                    }
                 }
             }
         }

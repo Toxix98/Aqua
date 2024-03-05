@@ -9,32 +9,32 @@ using System.Threading.Tasks;
 
 namespace Aqua.Repository
 {
-    public class CustomersRepo : ICustomerRepo
+    public class AssestRepo : IAssestRepo
     {
         private AquaJoyDBContext db;
         public string StatuceMessage { get; set; }
 
-        public CustomersRepo(AquaJoyDBContext context)
+        public AssestRepo(AquaJoyDBContext context)
         {
             db = context;
         }
 
-        public IEnumerable<Customers> GetCustomerByFilter(string parameter)
+        public IEnumerable<Assests> GetAssestsByFilter(string parameter)
         {
-           return db.Customers.Where(c=> c.Name.Contains(parameter) || c.Family.Contains(parameter) || c.PhoneNumber.Contains(parameter)
-            || c.Address.Contains(parameter) || c.SubCode.Contains(parameter));
+            return db.Assest.Where(c => c.AssestName.Contains(parameter) || c.AssestType.Contains(parameter) || c.SearchDate.Contains(parameter))
+                .ToList();
         }
 
-        public bool UpdateCustomers(Customers customers)
+        public bool UpdateAssest(Assests assest)
         {
             try
             {
-                db.Customers.Update(customers);
+                db.Assest.Update(assest);
                 return true;
             }
             catch (Exception ex)
             {
-                StatuceMessage = "Erro for Updating Customer : " + ex.Message;
+                StatuceMessage = "Error for Updating Assest Item : " + ex.Message;
                 return false;
             }
         }

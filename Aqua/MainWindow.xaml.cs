@@ -69,12 +69,12 @@ namespace Aqua
 
         private void btnCustomers_Click(object sender, RoutedEventArgs e)
         {
-            fContainer.Navigate(new System.Uri("MVVM/Views/CustomerPage.xaml", UriKind.RelativeOrAbsolute));
+            fContainer.Navigate(new System.Uri("MVVM/Views/CustomerPages/CustomerPage.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void btnAssets_Click(object sender, RoutedEventArgs e)
         {
-            fContainer.Navigate(new System.Uri("MVVM/Views/AssestPage.xaml", UriKind.RelativeOrAbsolute));
+            fContainer.Navigate(new System.Uri("MVVM/Views/AssestPages/AssestPage.xaml", UriKind.RelativeOrAbsolute));
         }
 
 

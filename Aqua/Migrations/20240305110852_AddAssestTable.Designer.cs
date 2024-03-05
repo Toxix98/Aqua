@@ -4,6 +4,7 @@ using Aqua.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Aqua.Migrations
 {
     [DbContext(typeof(AquaJoyDBContext))]
-    partial class AquaJoyDBContextModelSnapshot : ModelSnapshot
+    [Migration("20240305110852_AddAssestTable")]
+    partial class AddAssestTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,39 +24,6 @@ namespace Aqua.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("Aqua.MVVM.Models.Assests", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("AssestDateOfBuye")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("AssestName")
-                        .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
-
-                    b.Property<decimal>("AssestPrice")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("AssestType")
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
-
-                    b.Property<string>("SearchDate")
-                        .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Assest");
-                });
 
             modelBuilder.Entity("Aqua.MVVM.Models.Customers", b =>
                 {
@@ -100,21 +70,16 @@ namespace Aqua.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("InvoiceId")
-                        .HasColumnType("int");
-
                     b.Property<string>("ProductCode")
                         .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ProductCount")
                         .HasColumnType("int");
 
                     b.Property<string>("ProductName")
                         .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("ProductPrice")
                         .HasColumnType("decimal(18,2)");
@@ -152,11 +117,6 @@ namespace Aqua.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ProuductName")
-                        .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
-
-                    b.Property<string>("SearchDatePurchaseInvoice")
                         .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
@@ -206,16 +166,6 @@ namespace Aqua.Migrations
 
                     b.Property<DateTime>("NextVisitDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("SearchDateOfWork")
-                        .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
-
-                    b.Property<string>("SearchNextVisitDate")
-                        .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
 
                     b.Property<string>("THeExpert")
                         .IsRequired()
@@ -278,21 +228,14 @@ namespace Aqua.Migrations
 
                     b.Property<string>("CustomerName")
                         .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DateOfSalesInvoice")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ExpertName")
                         .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
-
-                    b.Property<string>("SearchDateInvoice")
-                        .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("TotalPrice")
                         .HasColumnType("decimal(18,2)");
