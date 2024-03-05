@@ -19,7 +19,7 @@
                 <TextBox x:Name="txtSearch" Margin="0 0 10 0" Height="30" Width="300" Background="WhiteSmoke" Foreground="Black"
                      FontSize="15" HorizontalAlignment="Center"
                      VerticalAlignment="Center" FlowDirection="RightToLeft"
-                     VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" >
+                     VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" TextChanged="txtSearch_TextChanged">
 
                     <TextBox.Resources>
                         <Style TargetType="{x:Type Border}">
@@ -29,10 +29,10 @@
                 </TextBox>
                 <TextBlock Text=":" Style="{StaticResource MenoIconText}" FontFamily="Dirooz FD" FontSize="15" VerticalAlignment="Center" Margin="0 0 5 0"/>
                 <TextBlock Text="جست و جو" Style="{StaticResource MenoIconText}" FontFamily="Dirooz FD" FontSize="15" VerticalAlignment="Center"/>
-                <Button Style="{StaticResource MenuButtonStorPage}" Width="130" Margin="5" Background="#469126" Content="اضافه حساب بانکی جدید" FontSize="11"/>
-                <Button Style="{StaticResource MenuButtonStorPage}" Width="130" Margin="5" Background="#53ad2b" Content="تازه سازی" FontSize="15"/>
-                <Button Style="{StaticResource MenuButtonStorPage}" Width="130" Margin="5" Background="Red" Content="حذف حساب بانکی" FontSize="15"/>
-                <Button Style="{StaticResource MenuButtonStorPage}" Width="130" Margin="5" Background="#1067aa" Content="ویرایش حساب بانکی" FontSize="11"/>
+                <Button x:Name="btnSave" Style="{StaticResource MenuButtonStorPage}" Width="130" Margin="5" Background="#469126" Content="اضافه حساب بانکی جدید" FontSize="11" Click="btnSave_Click"/>
+                <Button x:Name="btnRefresh" Style="{StaticResource MenuButtonStorPage}" Width="130" Margin="5" Background="#53ad2b" Content="تازه سازی" FontSize="15" Click="btnRefresh_Click"/>
+                <Button Style="{StaticResource MenuButtonStorPage}" Width="130" Margin="5" Background="Red" Content="حذف حساب بانکی" FontSize="15" x:Name="btnDelet" Click="btnDelet_Click"/>
+                <Button x:Name="btnEdite" Style="{StaticResource MenuButtonStorPage}" Width="130" Margin="5" Background="#1067aa" Content="ویرایش حساب بانکی" FontSize="11" Click="btnEdite_Click"/>
             </StackPanel>
 
         </Border>
@@ -40,15 +40,15 @@
         <Border CornerRadius="0 0 5 5 " Background="WhiteSmoke" Grid.Row="1">
             <Border Grid.Column="1" Grid.Row="0" Margin="10 0 10 5">
                 <StackPanel>
-                    <DataGrid Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="5" x:Name="membersDataGrid" Height="540" MaxHeight="650">
+                    <DataGrid Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="5" x:Name="BankAccountDataGrid" Height="540" MaxHeight="650">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="مبلغ باقی مانده در حساب" IsReadOnly="True" Width="*" Binding="{Binding Bank}"/>
+                            <DataGridTextColumn Header="مبلغ باقی مانده در حساب" IsReadOnly="True" Width="*" Binding="{Binding BankBalance}"/>
 
-                            <DataGridTextColumn Header="شعبه بانک" IsReadOnly="True" Width="*" Binding="{Binding Bank}"/>
-                            <DataGridTextColumn Header="اسم بانک" IsReadOnly="True" Width="*" Binding="{Binding Bank}"/>
-                            <DataGridTextColumn Header="شماره حساب بانکی" IsReadOnly="True" Width="*" Binding="{Binding Price}"/>
-                            <DataGridTextColumn Header="نام بانک" IsReadOnly="True" Width="*" Binding="{Binding Number}"/>
-                            <DataGridTextColumn x:Name="ID" Visibility="Hidden" Header="ردیف" IsReadOnly="True" Width="auto" Binding="{Binding Date}"/>
+                            <DataGridTextColumn Header="شعبه بانک" IsReadOnly="True" Width="*" Binding="{Binding BankBranck}"/>
+                            <DataGridTextColumn Header="دسته چک" IsReadOnly="True" Width="*" Binding="{Binding HaseBankChek}"/>
+                            <DataGridTextColumn Header="شماره حساب بانکی" IsReadOnly="True" Width="*" Binding="{Binding BankAccountNumber}"/>
+                            <DataGridTextColumn Header="نام بانک" IsReadOnly="True" Width="*" Binding="{Binding BankName}"/>
+                            <DataGridTextColumn x:Name="ID" Visibility="Hidden" Header="ردیف" IsReadOnly="True" Width="auto" Binding="{Binding Id}"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </StackPanel>
