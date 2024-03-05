@@ -56,7 +56,7 @@ VerticalContentAlignment="Center" FontFamily="Dirooz FD" BorderBrush="#3a3a3a">
                     <TextBox x:Name="txtBanAccNum" Margin="0 10 0 0" Height="30" Width="200" Background="WhiteSmoke" Foreground="Black"
     FontSize="15" HorizontalAlignment="Center"
     VerticalAlignment="Center" FlowDirection="RightToLeft"
-    VerticalContentAlignment="Center" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" PreviewTextInput="txtCustomePhoneNumber_PreviewTextInput">
+    VerticalContentAlignment="Center" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" PreviewTextInput="txtCustomePhoneNumber_PreviewTextInput" InputLanguageManager.InputLanguage="fa-IR">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
@@ -67,7 +67,7 @@ VerticalContentAlignment="Center" FontFamily="Dirooz FD" BorderBrush="#3a3a3a">
                     <TextBox x:Name="txtBankBalance" Margin="0 30 0 0" Height="30" Width="200" Background="WhiteSmoke" Foreground="Black"
 FontSize="15" HorizontalAlignment="Center"
 VerticalAlignment="Center" FlowDirection="RightToLeft"
-VerticalContentAlignment="Center" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" PreviewTextInput="txt_PreviewTextInput" Language="fa-IR">
+VerticalContentAlignment="Center" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" PreviewTextInput="txtBankBalance_PreviewTextInput" InputScope="Number">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
@@ -78,7 +78,6 @@ VerticalContentAlignment="Center" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" P
                     <Button Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="100" Height="40" Margin="0,15,0,0" Style="{StaticResource ButtonStyle}" Background="Red" Content="بستن" Foreground="White" FontFamily="Dirooz FD" Click="Button_Click"/>
 
                 </StackPanel>
-
             </Grid>
         </Grid>
     </Border>

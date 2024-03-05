@@ -37,14 +37,6 @@ namespace Aqua.MVVM.Views.BankAccountPages
             }
         }
 
-        private void txt_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            if(!char.IsDigit(e.Text, 0))
-            {
-                e.Handled = true;
-            }
-        }
-
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -81,6 +73,14 @@ namespace Aqua.MVVM.Views.BankAccountPages
                 txtBankBalance.Text = BankAcc.BankBalance.ToString();
                 txtBankBranchName.Text = BankAcc.BankBranck;
                 txtBankname.Text = BankAcc.BankName;
+            }
+        }
+
+        private void txtBankBalance_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!char.IsDigit(e.Text, 0))
+            {
+                e.Handled = true;
             }
         }
     }

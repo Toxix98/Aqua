@@ -44,8 +44,7 @@ namespace Aqua.MVVM.ViewModels
         public bool DeletBankAccount(int Id)
         {
             var BankAcc = _baseRepo.GetItem(Id);
-            BankAccount bankAccount = new BankAccount();
-            if (bankAccount.BankChekId == 0)
+            if (BankAcc.BankChekId == 0)
             {
                 _baseRepo.DeletItem(BankAcc);
                 BankAccountItem.Remove(BankAcc);
@@ -99,7 +98,7 @@ namespace Aqua.MVVM.ViewModels
 
                 Application.Current.Dispatcher.Invoke(() =>
                 {
-                    MessageBox.Show("دارایی با موفقیت اضافه شد", "پیام", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("حساب بانکی با موفقیت اضافه شد", "پیام", MessageBoxButton.OK, MessageBoxImage.Information);
                 });
             }
             else
@@ -126,7 +125,7 @@ namespace Aqua.MVVM.ViewModels
 
                         Application.Current.Dispatcher.Invoke(() =>
                         {
-                            MessageBox.Show("دارایی با موفقیت به روزرسانی شد", "پیام", MessageBoxButton.OK, MessageBoxImage.Information);
+                            MessageBox.Show("حساب بانکی با موفقیت به روزرسانی شد", "پیام", MessageBoxButton.OK, MessageBoxImage.Information);
                         });
                     }
                 }

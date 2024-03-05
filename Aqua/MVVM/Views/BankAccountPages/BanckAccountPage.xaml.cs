@@ -21,9 +21,6 @@ using MessageBox = System.Windows.Forms.MessageBox;
 
 namespace Aqua.Pages
 {
-    /// <summary>
-    /// Interaction logic for PageBanckAccount.xaml
-    /// </summary>
     public partial class PageBanckAccount : Page
     {
         private BankAccountViewModels _bankViewModel;
@@ -45,6 +42,7 @@ namespace Aqua.Pages
         {
             BankAccAddOrUpdate bankAccAddOrUpdate = new BankAccAddOrUpdate();
             bankAccAddOrUpdate.ShowDialog();
+            BindGrid();
         }
 
         private void btnEdite_Click(object sender, RoutedEventArgs e)
@@ -80,7 +78,7 @@ namespace Aqua.Pages
 
         private void btnRefresh_Click(object sender, RoutedEventArgs e)
         {
-
+            BindGrid();
         }
 
         private void txtSearch_TextChanged(object sender, TextChangedEventArgs e)
