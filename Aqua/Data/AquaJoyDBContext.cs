@@ -22,5 +22,6 @@ namespace Aqua.Data
         public DbSet<SalesInvoice> SalesInvoice { get; set; }
         public DbSet<Customers> Customers { get; set; }
         public DbSet<Assests> Assest { get; set; }
+        public DbSet<BankAccount> BankAccount { get; set; }
     }
 }

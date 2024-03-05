@@ -1,6 +1,8 @@
 ﻿using Aqua.MVVM.ViewModels;
 using Aqua.Pages.LoginPage;
 using System.Windows;
+using System.Windows.Forms;
+using MessageBox = System.Windows.Forms.MessageBox;
 
 namespace Aqua.MVVM.Views
 {
@@ -11,6 +13,7 @@ namespace Aqua.MVVM.Views
     {
         public int ProductStoreID = 0;
         private StoreViewModel _viewModel;
+        public string StatuceMessage { get; set; }
         public StoreAddOrUpdate()
         {
             InitializeComponent();
@@ -25,18 +28,26 @@ namespace Aqua.MVVM.Views
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if (_viewModel != null)
+            try
             {
-                if (txtProductCode.Text != "" || txtProductCount.Text != "" || txtProductName.Text != "" || txtProductPrice.Text != ""
-                    || txtProductType.Text != "")
+                if (_viewModel != null)
                 {
-                    _viewModel.SaveProduct(txtProductName.Text, txtProductCount.Text, txtProductPrice.Text,
-                        txtProductDescriptions.Text, txtProductCode.Text ,txtProductType.Text, ProductStoreID);
+                    if (txtProductCode.Text != "" || txtProductCount.Text != "" || txtProductName.Text != "" || txtProductPrice.Text != ""
+                        || txtProductType.Text != "")
+                    {
+                        _viewModel.SaveProduct(txtProductName.Text, txtProductCount.Text, txtProductPrice.Text,
+                            txtProductDescriptions.Text, txtProductCode.Text, txtProductType.Text, ProductStoreID);
+                    }
+                    else
+                    {
+                        MessageBox.Show("لطفا فیلدهای اجباری را پرنمایید", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("لطفا فیلدهای اجباری را پرنمایید", "خطا", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
+            }
+            catch (Exception ex)
+            {
+                StatuceMessage = "Error for Adding or Updating : " + ex.Message;
+                MessageBox.Show(StatuceMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
