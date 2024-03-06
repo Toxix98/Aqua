@@ -1,4 +1,5 @@
 ﻿using Aqua.Abstarctions;
+using Aqua.ListViewModel;
 using Aqua.MVVM.Models;
 using Aqua.Repository;
 using System;
@@ -59,6 +60,11 @@ namespace Aqua.MVVM.ViewModels
                 return false;
             }
 
+        }
+
+        public List<BankAccountListViewModel> GetBankNameList()
+        {
+            return _bankAccountRepo.GetBankName();
         }
 
         public IEnumerable<BankAccount> GetBanckAccountByFilters(string parameter)

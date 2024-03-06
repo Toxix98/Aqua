@@ -80,7 +80,7 @@ namespace Aqua
 
         private void btnBankChek_Click_1(object sender, RoutedEventArgs e)
         {
-            fContainer.Navigate(new System.Uri("MVVM/Views/ChekPage.xaml", UriKind.RelativeOrAbsolute));
+            fContainer.Navigate(new System.Uri("MVVM/Views/BankChekPages/ChekPage.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void btnBillan_Click(object sender, RoutedEventArgs e)

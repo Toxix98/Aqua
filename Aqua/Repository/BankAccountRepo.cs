@@ -1,5 +1,6 @@
 ﻿using Aqua.Abstarctions;
 using Aqua.Data;
+using Aqua.ListViewModel;
 using Aqua.MVVM.Models;
 using System;
 using System.Collections.Generic;
@@ -41,6 +42,17 @@ namespace Aqua.Repository
         public void Save()
         {
             db.SaveChanges();
+        }
+
+        public List<BankAccountListViewModel> GetBankName()
+        {
+            return db.BankAccount.Select(b=> new BankAccountListViewModel()
+            {
+                Id = b.Id,
+                BankName = b.BankName,
+                BankBeranch = b.BankBranck,
+                HseChek = b.HaseBankChek
+            }).ToList();
         }
     }
 }

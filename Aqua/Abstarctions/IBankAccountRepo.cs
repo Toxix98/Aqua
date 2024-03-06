@@ -1,4 +1,5 @@
-﻿using Aqua.MVVM.Models;
+﻿using Aqua.ListViewModel;
+using Aqua.MVVM.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,6 @@ namespace Aqua.Abstarctions
     {
         bool UpdateBankAccount(BankAccount bankAccount);
         IEnumerable<BankAccount> GetBankAccounts(string parameter);
+        List<BankAccountListViewModel> GetBankName();
     }
 }

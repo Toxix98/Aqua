@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Aqua.MVVM.ViewModels;
+using Aqua.MVVM.Views.BankChekPages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,25 @@ namespace Aqua.Pages
     /// </summary>
     public partial class ChekPage : Page
     {
+        private BankChekViewModel _viewModel;
         public ChekPage()
         {
             InitializeComponent();
+            _viewModel = new BankChekViewModel();
+            DataContext = _viewModel;
+            BindGrid();
+        }
+
+        public void BindGrid()
+        {
+            ChekDataGrid.ItemsSource = _viewModel.GetBankChekList();
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            BankChekAddOrEdite BankChekAddOrEdite = new BankChekAddOrEdite();
+            BankChekAddOrEdite.ShowDialog();
+            BindGrid();
         }
     }
 }
