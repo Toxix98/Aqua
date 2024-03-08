@@ -5,10 +5,12 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Globalization;
 
 namespace Aqua.MVVM.ViewModels
 {
@@ -59,7 +61,7 @@ namespace Aqua.MVVM.ViewModels
             return _baseRepo.GetItems();
         }
 
-        public void SaveBankAccount(string txtChekNum, string txtChekBank, string txtChekPrice, string txtAsignmen, string txtIssuDate, string txtDueDate, string txtDescriptions, int CheckId, int ID)
+        public void SaveBankAccount(string txtChekNum, string txtChekBank, decimal txtChekPrice, string txtAsignmen, string txtIssuDate, string txtDueDate, string txtDescriptions, int ID)
         {
             if (ID == 0)
             {
@@ -67,12 +69,11 @@ namespace Aqua.MVVM.ViewModels
                 {
                     ChekNumber = txtChekNum,
                     Bank = txtChekBank,
-                    ChekPrice = Convert.ToInt32(txtChekPrice),
+                    ChekPrice = Convert.ToDecimal(txtChekPrice),
                     Assignment = txtAsignmen,
-                    BankChekId = CheckId,
-                    IssueDate = Convert.ToDateTime(DateTime.Parse(txtIssuDate).Year.ToString()),
+                    IssueDate = DateTime.ParseExact(txtIssuDate, "yyyy/M/d", CultureInfo.InvariantCulture),
                     IssueDtaeSTR = txtIssuDate,
-                    DueDate = Convert.ToDateTime(DateTime.Parse(txtDueDate).Year.ToString()),
+                    DueDate = DateTime.ParseExact(txtDueDate, "yyyy/M/d", CultureInfo.InvariantCulture),
                     DueDateSTR = txtDueDate,
                     Descriptions = txtDescriptions,
                 };
@@ -91,13 +92,15 @@ namespace Aqua.MVVM.ViewModels
                 {
                     exisitingChek.ChekNumber = txtChekNum;
                     exisitingChek.Bank = txtChekBank;
-                    exisitingChek.ChekPrice = Convert.ToInt32(txtChekPrice);
+                    exisitingChek.ChekPrice = Convert.ToDecimal(txtChekPrice);
                     exisitingChek.Assignment = txtAsignmen;
                     exisitingChek.IssueDtaeSTR = txtIssuDate;
                     exisitingChek.DueDateSTR = txtDueDate;
                     exisitingChek.Descriptions = txtDescriptions;
+                    exisitingChek.DueDate = DateTime.ParseExact(txtDueDate, "yyyy/M/d", CultureInfo.InvariantCulture);
+                    exisitingChek.IssueDate = DateTime.ParseExact(txtIssuDate, "yyyy/M/d", CultureInfo.InvariantCulture);
 
-                    if (txtChekNum == "" || txtChekBank == "" || txtChekPrice == "" || txtAsignmen == "" || txtIssuDate == ""
+                    if (txtChekNum == "" || txtChekBank == "" || txtChekPrice == null || txtAsignmen == "" || txtIssuDate == ""
                         || txtDueDate == "" || txtDescriptions == "")
                     {
                         Application.Current.Dispatcher.Invoke(() =>

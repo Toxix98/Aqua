@@ -11,15 +11,13 @@ namespace Aqua.MVVM.Models
     {
         public int Id { get; set; }
 
-        public int BankChekId { get; set; }
-
         [MaxLength(200)]
         public string ChekNumber { get; set; }
 
         [MaxLength(150)]
         public string Bank { get; set; }
 
-        public int ChekPrice { get; set; }
+        public decimal ChekPrice { get; set; }
 
         [MaxLength(100)]
         public string Assignment { get; set; }

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -59,7 +60,7 @@ namespace Aqua.MVVM.ViewModels
             return _baseRepo.GetItems();
         }
 
-        public void SaveAssests(string txtAssName, string txtAssType, string txtAssPrice, string txtDateOfBye, int ID)
+        public void SaveAssests(string txtAssName, string txtAssType, int ?txtAssPrice, string txtDateOfBye, int ID)
         {
             if (ID == 0)
             {
@@ -69,8 +70,8 @@ namespace Aqua.MVVM.ViewModels
                     AssestType = txtAssType,
                     AssestPrice = Convert.ToDecimal(txtAssPrice),
                     SearchDate = txtDateOfBye,
-                    AssestDateOfBuye = Convert.ToDateTime(txtDateOfBye),
-                };
+                    AssestDateOfBuye = DateTime.ParseExact(txtDateOfBye, "yyyy/M/d", CultureInfo.InvariantCulture),
+            };
                 _baseRepo.AddItem(assests);
                 AssestItems.Add(assests);
 
@@ -88,9 +89,9 @@ namespace Aqua.MVVM.ViewModels
                     exisitingAsses.AssestType = txtAssType;
                     exisitingAsses.AssestPrice = Convert.ToDecimal(txtAssPrice);
                     exisitingAsses.SearchDate = txtDateOfBye;
-                    exisitingAsses.AssestDateOfBuye = Convert.ToDateTime(exisitingAsses.SearchDate);
+                    exisitingAsses.AssestDateOfBuye = DateTime.ParseExact(txtDateOfBye, "yyyy/M/d", CultureInfo.InvariantCulture);
 
-                    if (txtAssName == "" || txtAssPrice == "" || txtDateOfBye == "")
+                    if (txtAssName == "" || txtAssPrice == null || txtDateOfBye == "")
                     {
                         Application.Current.Dispatcher.Invoke(() =>
                         {

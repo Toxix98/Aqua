@@ -11,6 +11,5 @@ namespace Aqua.ListViewModel
         public int Id { get; set; }
         public  string BankName { get; set; }
         public string BankBeranch { get; set; }
-        public string HseChek { get; set; }
     }
 }

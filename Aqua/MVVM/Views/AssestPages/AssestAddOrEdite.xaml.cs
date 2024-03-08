@@ -31,7 +31,7 @@ namespace Aqua.MVVM.Views.Assest
         {
             try
             {
-                if (txtAssesName.Text == "" || txtAssestPrice.Text == "" || txtDateOfByeAssest.Text == "")
+                if (txtAssesName.Text == "" || txtAssestPrice.Value == null || txtDateOfByeAssest.Text == null)
                 {
                     Application.Current.Dispatcher.Invoke(() =>
                     {
@@ -40,7 +40,7 @@ namespace Aqua.MVVM.Views.Assest
                 }
                 else
                 {
-                    _assestviewModel.SaveAssests(txtAssesName.Text, txtAssestType.Text, txtAssestPrice.Text, 
+                    _assestviewModel.SaveAssests(txtAssesName.Text, txtAssestType.Text, txtAssestPrice.Value, 
                         txtDateOfByeAssest.Text, AssestProId);
                 }
             }

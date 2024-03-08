@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="SalesInvoicePage" Height="650" Width="1010" WindowStartupLocation="CenterScreen" WindowStyle="None" Background="Transparent" AllowsTransparency="True" MouseDown="Window_MouseDown">
 
-    <Border Background="WhiteSmoke">
+    <Border Background="#edfefa" CornerRadius="5">
         <Grid>
 
             <Grid.ColumnDefinitions>

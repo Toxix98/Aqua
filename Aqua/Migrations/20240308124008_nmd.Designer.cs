@@ -4,6 +4,7 @@ using Aqua.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Aqua.Migrations
 {
     [DbContext(typeof(AquaJoyDBContext))]
-    partial class AquaJoyDBContextModelSnapshot : ModelSnapshot
+    [Migration("20240308124008_nmd")]
+    partial class nmd
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -105,8 +108,8 @@ namespace Aqua.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
-                    b.Property<decimal>("ChekPrice")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<int>("ChekPrice")
+                        .HasColumnType("int");
 
                     b.Property<string>("Descriptions")
                         .HasMaxLength(800)

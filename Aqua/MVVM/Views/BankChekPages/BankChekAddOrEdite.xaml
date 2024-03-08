@@ -4,7 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Aqua.MVVM.Views.BankChekPages"
-        mc:Ignorable="d" Height="320" Width="900" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="Transparent">
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d" Height="320" Width="900" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True"
+        xmlns:persianDateControls="clr-namespace:Mohsen.PersianDateControls;assembly=Mohsen.PersianDateControls"
+        Background="Transparent" Loaded="Window_Loaded">
     <Border CornerRadius="5" Background="#edfefa">
         <Grid>
             <Grid>
@@ -19,9 +22,8 @@
                 <Border CornerRadius="0 0 5 5 " Background="#edfefa" Grid.Column="4">
                     <Border Grid.Column="1" Grid.Row="0" Margin="10 0 10 5">
                         <StackPanel>
-                            <DataGrid Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="5" x:Name="BankAccDataGrid" Height="305" MaxHeight="650" Width="261">
+                            <DataGrid Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="5" x:Name="BankAccDataGrid" Height="305" MaxHeight="650" Width="261" SelectionChanged="BankAccDataGrid_SelectionChanged">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="چک" IsReadOnly="True" Width="*" Binding="{Binding HseChek}"/>
                                     <DataGridTextColumn Header="شعبه بانک" IsReadOnly="True" Width="*" Binding="{Binding BankBeranch}"/>
                                     <DataGridTextColumn Header="نام بانک" IsReadOnly="True" Width="*" Binding="{Binding BankName}"/>
                                     <DataGridTextColumn x:Name="ID" Header="ردیف" IsReadOnly="True" Width="*" Binding="{Binding Id}" Visibility="Hidden"/>
@@ -61,16 +63,16 @@ VerticalContentAlignment="Center" FontFamily="Dirooz FD" BorderBrush="#3a3a3a">
                         </TextBox.Resources>
                     </TextBox>
 
-                    <TextBox x:Name="txtChekPrice" Margin="0 30 0 0" Height="30" Width="200" Background="WhiteSmoke" Foreground="Black"
+                    <xctk:IntegerUpDown x:Name="txtChekPrice" Margin="0 30 0 0" Height="30" Width="200" Background="WhiteSmoke" Foreground="Black"
 FontSize="15" HorizontalAlignment="Center"
 VerticalAlignment="Center" FlowDirection="RightToLeft"
-VerticalContentAlignment="Center" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" PreviewTextInput="txtChekPrice_PreviewTextInput">
-                        <TextBox.Resources>
+VerticalContentAlignment="Center" FontFamily="Dirooz FD" BorderBrush="#3a3a3a">
+                        <xctk:IntegerUpDown.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
                             </Style>
-                        </TextBox.Resources>
-                    </TextBox>
+                        </xctk:IntegerUpDown.Resources>
+                    </xctk:IntegerUpDown>
 
                     <TextBox x:Name="txtAssignment" Margin="0 30 0 0" Height="30" Width="200" Background="WhiteSmoke" Foreground="Black"
 FontSize="15" HorizontalAlignment="Center"
@@ -89,31 +91,14 @@ VerticalContentAlignment="Center" FontFamily="Dirooz FD" BorderBrush="#3a3a3a">
                 <StackPanel Grid.Column="1" Margin="0 20 20 0">
                     <Label Content=": تاریخ صدور" Margin="0 10 0 0" FontFamily="Dirooz FD" Foreground="Red"/>
                     <Label Content=": تاریخ سر رسید" Margin="0 30 0 0" FontFamily="Dirooz FD" Foreground="Red"/>
-                    <Label Content=": توصیحات" Margin="0 30 0 0" FontFamily="Dirooz FD" Foreground="Red"/>
+                    <Label Content=": توصیحات" Margin="0 30 0 0" FontFamily="Dirooz FD"/>
                 </StackPanel>
 
                 <StackPanel Grid.Column="0" Margin="45 20 0 0">
-                    <TextBox x:Name="txtIssuDate" Margin="0 10 0 0" Height="30" Width="200" Background="WhiteSmoke" Foreground="Black"
-    FontSize="15" HorizontalAlignment="Center"
-    VerticalAlignment="Center" FlowDirection="RightToLeft"
-    VerticalContentAlignment="Center" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" PreviewTextInput="txtIssuDate_PreviewTextInput" InputLanguageManager.InputLanguage="fa-IR">
-                        <TextBox.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="10"/>
-                            </Style>
-                        </TextBox.Resources>
-                    </TextBox>
 
-                    <TextBox x:Name="txtDueDate" Margin="0 30 0 0" Height="30" Width="200" Background="WhiteSmoke" Foreground="Black"
-FontSize="15" HorizontalAlignment="Center"
-VerticalAlignment="Center" FlowDirection="RightToLeft"
-VerticalContentAlignment="Center" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" PreviewTextInput="txtDueDate_PreviewTextInput" InputScope="Number">
-                        <TextBox.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="10"/>
-                            </Style>
-                        </TextBox.Resources>
-                    </TextBox>
+                    <persianDateControls:PersianDatePicker x:Name="txtIssuDate" Margin="0 10 0 0" HorizontalAlignment="Center" Height="30"/>
+
+                    <persianDateControls:PersianDatePicker x:Name="txtDueDate"  Margin="0 30 0 0" HorizontalAlignment="Center" Height="30"/>
 
                     <TextBox x:Name="txtDescriptions" Margin="0 30 0 0" Height="90" Width="200" Background="WhiteSmoke" Foreground="Black"
 FontSize="15" HorizontalAlignment="Center" FlowDirection="RightToLeft"
@@ -124,7 +109,6 @@ VerticalContentAlignment="Top" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" Inpu
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-
 
                     <Button x:Name="btnClose" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="100" Height="40" Margin="0,15,0,0" Style="{StaticResource ButtonStyle}" Background="Red" Content="بستن" Foreground="White" FontFamily="Dirooz FD" Click="btnClose_Click"/>
 

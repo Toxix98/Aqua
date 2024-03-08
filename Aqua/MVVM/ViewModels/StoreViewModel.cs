@@ -61,15 +61,15 @@ namespace Aqua.MVVM.ViewModels
            return _storRepo.GetItem(Id);
         }
 
-        public void SaveProduct(string txtPN, string txtPC, string txtPP, string txtPD, string txtPCO, string txtPY, int ID)
+        public void SaveProduct(string txtPN, int txtPC, int txtPP, string txtPD, string txtPCO, string txtPY, int ID)
         {
             if (ID == 0)
             {
                 Store Item = new Store()
                 {
                     ProductName = txtPN,
-                    CountOfProduct = int.Parse(txtPC),
-                    Price = int.Parse(txtPP),
+                    CountOfProduct = txtPC,
+                    Price = txtPP,
                     Description = txtPD,
                     ProductCode = txtPCO,
                     Productype = txtPY,
@@ -88,13 +88,13 @@ namespace Aqua.MVVM.ViewModels
                 if (existingItem != null)
                 {
                     existingItem.ProductName = txtPN;
-                    existingItem.CountOfProduct = int.Parse(txtPC);
-                    existingItem.Price = int.Parse(txtPP);
+                    existingItem.CountOfProduct = txtPC;
+                    existingItem.Price = txtPP;
                     existingItem.Description = txtPD;
                     existingItem.ProductCode = txtPCO;
                     existingItem.Productype = txtPY;
 
-                    if (txtPC == "" || txtPCO == "" || txtPN == "" || txtPP == "" || txtPY == "")
+                    if (txtPC == 0 || txtPCO == "" || txtPN == "" || txtPP == 0 || txtPY == "")
                     {
                         Application.Current.Dispatcher.Invoke(() =>
                         {

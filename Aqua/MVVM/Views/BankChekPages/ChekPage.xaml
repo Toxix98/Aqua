@@ -30,9 +30,9 @@
                 <TextBlock Text=":" Style="{StaticResource MenoIconText}" FontFamily="Dirooz FD" FontSize="15" VerticalAlignment="Center" Margin="0 0 5 0"/>
                 <TextBlock Text="جست و جو" Style="{StaticResource MenoIconText}" FontFamily="Dirooz FD" FontSize="15" VerticalAlignment="Center"/>
                 <Button x:Name="btnAdd" Style="{StaticResource MenuButtonStorPage}" Width="130" Margin="5" Background="#469126" Content="اضافه کردن چک جدید" FontSize="11" Click="btnAdd_Click"/>
-                <Button Style="{StaticResource MenuButtonStorPage}" Width="130" Margin="5" Background="#53ad2b" Content="تازه سازی" FontSize="15"/>
-                <Button Style="{StaticResource MenuButtonStorPage}" Width="130" Margin="5" Background="Red" Content="حذف چک" FontSize="15"/>
-                <Button Style="{StaticResource MenuButtonStorPage}" Width="130" Margin="5" Background="#1067aa" Content="ویرایش چک" FontSize="15"/>
+                <Button Style="{StaticResource MenuButtonStorPage}" Width="130" Margin="5" Background="#53ad2b" Content="تازه سازی" FontSize="15" x:Name="Refresh" Click="Refresh_Click"/>
+                <Button Style="{StaticResource MenuButtonStorPage}" Width="130" Margin="5" Background="Red" Content="حذف چک" FontSize="15" x:Name="btnDelet" Click="btnDelet_Click"/>
+                <Button Style="{StaticResource MenuButtonStorPage}" Width="130" Margin="5" Background="#1067aa" Content="ویرایش چک" FontSize="15" x:Name="btnEdite" Click="btnEdite_Click"/>
             </StackPanel>
 
         </Border>

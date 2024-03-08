@@ -45,20 +45,9 @@ namespace Aqua.MVVM.ViewModels
         public bool DeletBankAccount(int Id)
         {
             var BankAcc = _baseRepo.GetItem(Id);
-            if (BankAcc.BankChekId == 0)
-            {
-                _baseRepo.DeletItem(BankAcc);
-                BankAccountItem.Remove(BankAcc);
-                return true;
-            }
-            else
-            {
-                Application.Current.Dispatcher.Invoke(() =>
-                {
-                    MessageBox.Show("این حساب بانکی با یک دسته چک در ارتباط است و شما نمیتوانید تا زمانی که دسته چک را پاک نکرده‌اید این حساب بانکی را پاک کنید", "خطا", MessageBoxButton.OK, MessageBoxImage.Error);
-                });
-                return false;
-            }
+            _baseRepo.DeletItem(BankAcc);
+            BankAccountItem.Remove(BankAcc);
+            return true;
 
         }
 
@@ -77,27 +66,15 @@ namespace Aqua.MVVM.ViewModels
             return _baseRepo.GetItems();
         }
 
-        public void SaveBankAccount(string txtBankName, string txtBankBranch, string txtBankBalance, string txtBankAcCNumber, int CheckId, int ID)
+        public void SaveBankAccount(string txtBankName, string txtBankBranch, string txtBankAcCNumber, int ID)
         {
             if (ID == 0)
             {
-                string hasechek = "";
-                if(CheckId == 0)
-                {
-                    hasechek = "ندارد";
-                }
-                else if(CheckId == 1) 
-                {
-                    hasechek = "دارد";
-                }
                 BankAccount bankAccount = new BankAccount()
                 {
                     BankName = txtBankName,
                     BankAccountNumber = txtBankAcCNumber,
-                    BankBalance = Convert.ToDecimal(txtBankBalance),
                     BankBranck = txtBankBranch,
-                    BankChekId = 0,
-                    HaseBankChek = hasechek
                 };
                 _baseRepo.AddItem(bankAccount);
                 BankAccountItem.Add(bankAccount);
@@ -113,11 +90,10 @@ namespace Aqua.MVVM.ViewModels
                 if (exisitingBankAcc != null)
                 {
                     exisitingBankAcc.BankName = txtBankName;
-                    exisitingBankAcc.BankBalance = Convert.ToDecimal(txtBankBalance);
                     exisitingBankAcc.BankBranck = txtBankBranch;
                     exisitingBankAcc.BankAccountNumber = txtBankAcCNumber;
 
-                    if (txtBankName == "" || txtBankBalance == "" || txtBankBranch == "" || txtBankAcCNumber == "")
+                    if (txtBankName == "" || txtBankBranch == "" || txtBankAcCNumber == "")
                     {
                         Application.Current.Dispatcher.Invoke(() =>
                         {

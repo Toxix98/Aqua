@@ -4,7 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Aqua.MVVM.Views.Assest"
-        mc:Ignorable="d" Height="200" Width="600" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="Transparent" Loaded="Window_Loaded">
+        mc:Ignorable="d" Height="200" Width="600" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="Transparent" 
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        Loaded="Window_Loaded"
+        xmlns:persianDateControls="clr-namespace:Mohsen.PersianDateControls;assembly=Mohsen.PersianDateControls">
     <Border CornerRadius="5" Background="#edfefa">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -31,17 +34,16 @@
                     </TextBox.Resources>
                 </TextBox>
 
-                <TextBox x:Name="txtAssestPrice" Margin="0 30 0 0" Height="30" Width="200" Background="WhiteSmoke" Foreground="Black"
+                <xctk:IntegerUpDown x:Name="txtAssestPrice" Margin="0 30 0 0" Height="30" Width="200" Background="WhiteSmoke" Foreground="Black"
       FontSize="15" HorizontalAlignment="Center"
       VerticalAlignment="Center" FlowDirection="RightToLeft"
       VerticalContentAlignment="Center" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" Language="fa-IR">
-      VerticalContentAlignment="Center" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" PreviewTextInput="txtAssestPrice_PreviewTextInput">
-                    <TextBox.Resources>
+                    <xctk:IntegerUpDown.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="10"/>
                         </Style>
-                    </TextBox.Resources>
-                </TextBox>
+                    </xctk:IntegerUpDown.Resources>
+                </xctk:IntegerUpDown>
 
 
                 <Button x:Name="btnSave" Grid.Column="2" Width="110" Height="40" Margin="0,15,0,0" Style="{StaticResource ButtonStyle}" Background="Green" Content="افزودن دارایی جدید" Foreground="White" FontFamily="Dirooz FD" Click="btnSave_Click"/>
@@ -53,16 +55,7 @@
             </StackPanel>
 
             <StackPanel Grid.Column="0" Margin="15 20 0 0">
-                <TextBox x:Name="txtDateOfByeAssest" Margin="0 10 0 0" Height="30" Width="200" Background="WhiteSmoke" Foreground="Black"
-FontSize="15" HorizontalAlignment="Center"
-VerticalAlignment="Center" FlowDirection="RightToLeft"
-VerticalContentAlignment="Center" FontFamily="Dirooz FD" BorderBrush="#3a3a3a">
-                    <TextBox.Resources>
-                        <Style TargetType="{x:Type Border}">
-                            <Setter Property="CornerRadius" Value="10"/>
-                        </Style>
-                    </TextBox.Resources>
-                </TextBox>
+                <persianDateControls:PersianDatePicker x:Name="txtDateOfByeAssest" Margin="0 10 0 0" HorizontalAlignment="Center" Height="30"/>
 
                 <TextBox x:Name="txtAssestType" Margin="0 30 0 0" Height="30" Width="200" Background="WhiteSmoke" Foreground="Black"
 FontSize="15" HorizontalAlignment="Center"

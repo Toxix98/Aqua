@@ -41,14 +41,14 @@ namespace Aqua.MVVM.Views.BankAccountPages
         {
             try
             {
-                if (txtBanAccNum.Text == "" || txtBankBalance.Text == "" || txtBankBranchName.Text == ""
+                if (txtBanAccNum.Text == "" || txtBankBranchName.Text == ""
                     || txtBankname.Text == "")
                 {
                     MessageBox.Show("لطفا فیلدهای اجباری را پرنمایید", "خطا", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 else
                 {
-                    _bankVM.SaveBankAccount(txtBankname.Text, txtBankBranchName.Text, txtBankBalance.Text, txtBanAccNum.Text ,0, BankIDADD);
+                    _bankVM.SaveBankAccount(txtBankname.Text, txtBankBranchName.Text, txtBanAccNum.Text , BankIDADD);
                 }
             }
             catch(Exception ex) 
@@ -70,7 +70,6 @@ namespace Aqua.MVVM.Views.BankAccountPages
                 btnSave.Content = "ویرایش حساب بانکی";
                 var BankAcc = _bankVM.GetBankAccountById(BankIDADD);
                 txtBanAccNum.Text = BankAcc.BankAccountNumber;
-                txtBankBalance.Text = BankAcc.BankBalance.ToString();
                 txtBankBranchName.Text = BankAcc.BankBranck;
                 txtBankname.Text = BankAcc.BankName;
             }

@@ -51,7 +51,6 @@ namespace Aqua.Repository
                 Id = b.Id,
                 BankName = b.BankName,
                 BankBeranch = b.BankBranck,
-                HseChek = b.HaseBankChek
             }).ToList();
         }
     }

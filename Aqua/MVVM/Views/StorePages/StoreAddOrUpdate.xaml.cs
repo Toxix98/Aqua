@@ -32,10 +32,10 @@ namespace Aqua.MVVM.Views
             {
                 if (_viewModel != null)
                 {
-                    if (txtProductCode.Text != "" || txtProductCount.Text != "" || txtProductName.Text != "" || txtProductPrice.Text != ""
+                    if (txtProductCode.Text != "" || txtProductCount.Value != 0 || txtProductName.Text != "" || txtProductPrice.Value != 0
                         || txtProductType.Text != "")
                     {
-                        _viewModel.SaveProduct(txtProductName.Text, txtProductCount.Text, txtProductPrice.Text,
+                        _viewModel.SaveProduct(txtProductName.Text, Convert.ToInt32(txtProductCount.Value), Convert.ToInt32(txtProductPrice.Value),
                             txtProductDescriptions.Text, txtProductCode.Text, txtProductType.Text, ProductStoreID);
                     }
                     else

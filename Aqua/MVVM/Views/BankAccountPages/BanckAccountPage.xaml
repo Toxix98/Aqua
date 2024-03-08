@@ -42,10 +42,7 @@
                 <StackPanel>
                     <DataGrid Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="5" x:Name="BankAccountDataGrid" Height="540" MaxHeight="650">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="مبلغ باقی مانده در حساب" IsReadOnly="True" Width="*" Binding="{Binding BankBalance}"/>
-
                             <DataGridTextColumn Header="شعبه بانک" IsReadOnly="True" Width="*" Binding="{Binding BankBranck}"/>
-                            <DataGridTextColumn Header="دسته چک" IsReadOnly="True" Width="*" Binding="{Binding HaseBankChek}"/>
                             <DataGridTextColumn Header="شماره حساب بانکی" IsReadOnly="True" Width="*" Binding="{Binding BankAccountNumber}"/>
                             <DataGridTextColumn Header="نام بانک" IsReadOnly="True" Width="*" Binding="{Binding BankName}"/>
                             <DataGridTextColumn x:Name="ID" Visibility="Hidden" Header="ردیف" IsReadOnly="True" Width="auto" Binding="{Binding Id}"/>

@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Aqua
+namespace Aqua.MVVM.Views.InvoicesPages
 {
     /// <summary>
-    /// Interaction logic for AddOrUpdateBankAccount.xaml
+    /// Interaction logic for AllInvoices.xaml
     /// </summary>
-    public partial class AddOrUpdateBankAccount : Window
+    public partial class AllInvoices : Page
     {
-        public AddOrUpdateBankAccount()
+        public AllInvoices()
         {
             InitializeComponent();
         }

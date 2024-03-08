@@ -55,6 +55,7 @@ namespace Aqua.Pages
                 BankAccAddOrUpdate bankAccAddOrUpdate = new BankAccAddOrUpdate();
                 bankAccAddOrUpdate.BankIDADD = BankAccId;
                 bankAccAddOrUpdate.ShowDialog();
+                BindGrid();
             }
             BankAccountDataGrid.Items.Refresh();
             BindGrid();
@@ -64,7 +65,7 @@ namespace Aqua.Pages
         {
             if (BankAccountDataGrid.SelectedItem != null)
             {
-                var BankName = (BankAccountDataGrid.SelectedCells[4].Column.GetCellContent(BankAccountDataGrid.SelectedItem) as TextBlock)?.Text;
+                var BankName = (BankAccountDataGrid.SelectedCells[2].Column.GetCellContent(BankAccountDataGrid.SelectedItem) as TextBlock)?.Text;
                 BankAccount bankAccount = BankAccountDataGrid.SelectedItem as BankAccount;
 
                 if (MessageBox.Show($"آیا از حذف {BankName} مطمعن هستید؟", "توجه", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
