@@ -14,21 +14,15 @@ namespace Aqua.MVVM.Models
         [MaxLength (150)]
         public string ProuductName { get; set; }
 
-        public Decimal ProductPrice { get; set; }
-
         [MaxLength(150)]
         public string ProductCode { get; set; }
 
-        public decimal TotalPrice { get; set; }
-
-        [MaxLength(150)]
-        public string SearchDatePurchaseInvoice { get; set; }
-
-        public DateTime DateOfPurchase { get; set; }
-
         public int ProductPurchaseCount { get; set; }
 
-        [MaxLength(800)]
-        public string Descriptions { get; set; }
+        public int FiVahed { get; set; }
+
+        public int TPRice { get; set; }
+
+        public string Customer { get; set; }
     }
 }
