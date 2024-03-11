@@ -14,6 +14,9 @@ namespace Aqua.MVVM.Models
         [MaxLength (150)]
         public string ProductName { get; set; }
 
+        [MaxLength(200)]
+        public string ProductDevice { get; set; }
+
         public int Price { get; set; }
 
         [MaxLength(800)]

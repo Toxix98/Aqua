@@ -36,7 +36,7 @@ namespace Aqua.MVVM.Views
                         || txtProductType.Text != "")
                     {
                         _viewModel.SaveProduct(txtProductName.Text, Convert.ToInt32(txtProductCount.Value), Convert.ToInt32(txtProductPrice.Value),
-                            txtProductDescriptions.Text, txtProductCode.Text, txtProductType.Text, ProductStoreID);
+                            txtProductDescriptions.Text, txtProductCode.Text, txtProductType.Text, txtModelDevice.Text,ProductStoreID);
                     }
                     else
                     {

@@ -52,16 +52,19 @@ namespace Aqua.MVVM.ViewModels
             return _baseRepo.GetItems();
         }
 
-        public void SaveAssests(string ProductName, string ProductCode, int ProductCount, int ProductPrice, int InvoiceId, int ID)
+        public void SaveAssests(string ProductName, string ProductCode, int ProductCount, int ProductPrice, int InvoiceId, string DeviceModel, int ID, int FiVahed,
+            int TPRice)
         {
             if (ID == 0)
             {
                 InvoiceDetails InvoiceDetails = new InvoiceDetails()
                 {
                     ProductName = ProductName,
-                    ProductCode = ProductCode,
                     InvoiceId = InvoiceId,
                     ProductCount = ProductCount,
+                    DeviceModel = DeviceModel,
+                    FiVahed = FiVahed,
+                    TPRice = TPRice,
                     ProductPrice = Convert.ToDecimal(ProductPrice),
                 };
                 _baseRepo.AddItem(InvoiceDetails);
@@ -73,12 +76,14 @@ namespace Aqua.MVVM.ViewModels
                 if (exisitingINV != null)
                 {
                     exisitingINV.ProductName = ProductName;
-                    exisitingINV.ProductCode = ProductCode;
-                    exisitingINV.InvoiceId = InvoiceId;
                     exisitingINV.ProductCount = ProductCount;
+                    exisitingINV.DeviceModel = DeviceModel;
+                    exisitingINV.FiVahed = FiVahed;
+                    exisitingINV.TPRice = TPRice;
                     exisitingINV.ProductPrice = Convert.ToDecimal(ProductPrice);
 
-                    if (ProductName == "" || ProductCode == "" || InvoiceId == null || ProductCount == null || ProductPrice == null)
+                    if (ProductName == "" || ProductCode == "" || ProductCount == null || ProductPrice == null || DeviceModel == ""
+                        || FiVahed == null || TPRice == null)
                     {
                         Application.Current.Dispatcher.Invoke(() =>
                         {
@@ -92,7 +97,7 @@ namespace Aqua.MVVM.ViewModels
 
                         Application.Current.Dispatcher.Invoke(() =>
                         {
-                            MessageBox.Show("فاکتور با موفقیت به روزرسانی شد", "پیام", MessageBoxButton.OK, MessageBoxImage.Information);
+                            MessageBox.Show("ریز فاکتور با موفقیت به روزرسانی شد", "پیام", MessageBoxButton.OK, MessageBoxImage.Information);
                         });
                     }
                 }

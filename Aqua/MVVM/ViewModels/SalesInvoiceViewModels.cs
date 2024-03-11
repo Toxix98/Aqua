@@ -15,92 +15,58 @@ namespace Aqua.MVVM.ViewModels
 {
     public class SalesInvoiceViewModels : INotifyPropertyChanged
     {
-        private ObservableCollection<PurchaseInvoice> _purchaseInvoice;
-        private ObservableCollection<PurchaseInvoice> PurchaseInvoiceItem
+        private ObservableCollection<SalesInvoice> _salesInvoice;
+        private ObservableCollection<SalesInvoice> SalesInvoiceItem
         {
-            get { return _purchaseInvoice; }
+            get { return _salesInvoice; }
             set
             {
-                _purchaseInvoice = value;
-                OnPropertyChanged(nameof(PurchaseInvoiceItem));
+                _salesInvoice = value;
+                OnPropertyChanged(nameof(SalesInvoiceItem));
             }
         }
 
-        private BaseRepo<PurchaseInvoice> _baseRepo;
-        private PurchaseInvoiceRepo _purchaseRepo;
+        private BaseRepo<SalesInvoice> _baseRepo;
+        private PurchaseInvoiceRepo _salesInvoiceRepo;
 
         public SalesInvoiceViewModels()
         {
-            _baseRepo = new BaseRepo<PurchaseInvoice>(new Data.AquaJoyDBContext());
-            _purchaseRepo = new PurchaseInvoiceRepo(new Data.AquaJoyDBContext());
-            PurchaseInvoiceItem = new ObservableCollection<PurchaseInvoice>(_baseRepo.GetItems());
+            _baseRepo = new BaseRepo<SalesInvoice>(new Data.AquaJoyDBContext());
+            _salesInvoiceRepo = new PurchaseInvoiceRepo(new Data.AquaJoyDBContext());
+            SalesInvoiceItem = new ObservableCollection<SalesInvoice>(_baseRepo.GetItems());
         }
 
-        public PurchaseInvoice GetAssesPurchaseInvoiceById(int Id)
+        public SalesInvoice GetAssesSalesInvoiceById(int Id)
         {
             return _baseRepo.GetItem(Id);
         }
 
-        public bool DeletPurchaseInvoice(int Id)
+        public bool DeletSalesInvoice(int Id)
         {
             var INV = _baseRepo.GetItem(Id);
             _baseRepo.DeletItem(INV);
-            PurchaseInvoiceItem.Remove(INV);
+            SalesInvoiceItem.Remove(INV);
             return true;
         }
 
-        public List<PurchaseInvoice> GetPurchaseInvoice()
+        public List<SalesInvoice> GetSalesInvoice()
         {
             return _baseRepo.GetItems();
         }
 
-        public void SaveAssests(string ProuductName, string ProductCode, int ProductPurchaseCount, int FiVahed, int TPRice,string Customer, int ID)
+        public void SaveSalesInvoice(string ProductName, string DeviceModel, int ProductCount, int FiVahed, int TPRice)
         {
-            if (ID == 0)
+            SalesInvoice salesInvoice = new SalesInvoice()
             {
-                PurchaseInvoice PurchaseInvoice = new PurchaseInvoice()
-                {
-                    ProuductName = ProuductName,
-                    ProductCode = ProductCode,
-                    Customer = Customer,
-                    FiVahed = FiVahed,
-                    ProductPurchaseCount = ProductPurchaseCount,
-                    TPRice = TPRice
-                };
-                _baseRepo.AddItem(PurchaseInvoice);
-                PurchaseInvoiceItem.Add(PurchaseInvoice);
-            }
-            else
-            {
-                var exisitingINV = PurchaseInvoiceItem.FirstOrDefault(i => i.Id == ID);
-                if (exisitingINV != null)
-                {
-                    exisitingINV.ProuductName = ProuductName;
-                    exisitingINV.ProductCode = ProductCode;
-                    exisitingINV.Customer = Customer;
-                    exisitingINV.FiVahed = FiVahed;
-                    exisitingINV.ProductPurchaseCount = ProductPurchaseCount;
-                    exisitingINV.TPRice = TPRice;
+                ProductName = ProductName,
+                DeviceModel = DeviceModel,
+                TPRice = TPRice,
+                FiVahed = FiVahed,
+                ProductCount = ProductCount,
 
-                    if (ProuductName == "" || ProductCode == null || ProductPurchaseCount == null || FiVahed == null || TPRice == null || Customer == "")
-                    {
-                        Application.Current.Dispatcher.Invoke(() =>
-                        {
-                            MessageBox.Show("لطفا تمامی فیلد هارا پر نمایید", "خطا", MessageBoxButton.OK, MessageBoxImage.Error);
-                        });
-                    }
-                    else
-                    {
-                        _purchaseRepo.UpdatePurchaseInvoice(exisitingINV);
-                        _purchaseRepo.Save();
-
-                        Application.Current.Dispatcher.Invoke(() =>
-                        {
-                            MessageBox.Show("فاکتور فروش با موفقیت به روزرسانی شد", "پیام", MessageBoxButton.OK, MessageBoxImage.Information);
-                        });
-                    }
-                }
-            }
+            };
+            _baseRepo.AddItem(salesInvoice);
+            SalesInvoiceItem.Add(salesInvoice);
         }
 
         protected void OnPropertyChanged(string propertyName)

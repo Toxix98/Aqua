@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Aqua.Pages"
+        xmlns:persianDateControls="clr-namespace:Mohsen.PersianDateControls;assembly=Mohsen.PersianDateControls"
         mc:Ignorable="d"
         Title="SalesInvoicePage" Height="650" Width="1010" WindowStartupLocation="CenterScreen" WindowStyle="None" Background="Transparent" AllowsTransparency="True" MouseDown="Window_MouseDown">
 
@@ -32,17 +33,8 @@
                     <TextBlock Style="{StaticResource MenoIconText}" Text=": تاریخ"  FontSize="13" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="549,10,0,0" Height="27" Width="43"/>
                     <TextBlock Style="{StaticResource MenoIconText}" Text=": نام مشتری"  FontSize="13" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="549,58,0,0" Height="27" Width="81"/>
                     <TextBlock Style="{StaticResource MenoIconText}" Text=": کد اشتراک"  FontSize="13" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="550,109,0,0" Height="27" Width="80"/>
-                    <TextBox x:Name="txtSearch" Margin="350,10,0,0" Height="27" Width="190" Background="WhiteSmoke" Foreground="Black"
-            FontSize="13" HorizontalAlignment="Left"
-            VerticalAlignment="Top" FlowDirection="RightToLeft"
-            VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontFamily="Dirooz FD" BorderBrush="#3a3a3a">
-                        <TextBox.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="10"/>
-                            </Style>
-                        </TextBox.Resources>
-                    </TextBox>
-                    <TextBox x:Name="txtSearch_Copy" Margin="350,58,0,0" Height="27" Width="190" Background="WhiteSmoke" Foreground="Black"
+                    <persianDateControls:PersianDatePicker x:Name="txtIssuDate" Margin="407,9,0,318" HorizontalAlignment="Left" Height="30" Width="110"/>
+                    <TextBox x:Name="txtCustomerName" Margin="350,58,0,0" Height="27" Width="190" Background="WhiteSmoke" Foreground="Black"
                 FontSize="13" HorizontalAlignment="Left"
                 VerticalAlignment="Top" FlowDirection="RightToLeft"
                 VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" >
@@ -53,7 +45,7 @@
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <TextBox x:Name="txtSearch_Copy1" Margin="350,109,0,0" Height="27" Width="190" Background="WhiteSmoke" Foreground="Black"
+                    <TextBox x:Name="txtSubCode" Margin="350,109,0,0" Height="27" Width="190" Background="WhiteSmoke" Foreground="Black"
                 FontSize="13" HorizontalAlignment="Left"
                 VerticalAlignment="Top" FlowDirection="RightToLeft"
                 VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" >
@@ -65,7 +57,7 @@
                         </TextBox.Resources>
                     </TextBox>
                     <TextBlock Style="{StaticResource MenoIconText}" Text=": تلفن"  FontSize="13" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="550,155,0,0" Height="27" Width="41"/>
-                    <TextBox x:Name="txtSearch_Copy2" Margin="350,155,0,0" Height="27" Width="190" Background="WhiteSmoke" Foreground="Black"
+                    <TextBox x:Name="txtPhoneNumber" Margin="350,155,0,0" Height="27" Width="190" Background="WhiteSmoke" Foreground="Black"
                 FontSize="13" HorizontalAlignment="Left"
                 VerticalAlignment="Top" FlowDirection="RightToLeft"
                 VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" >
@@ -77,9 +69,10 @@
                         </TextBox.Resources>
                     </TextBox>
                     <TextBlock Style="{StaticResource MenoIconText}" Text=": تاریخ مراجعه بعدی"  FontSize="12" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="207,12,0,0" Height="24" Width="115"/>
-                    <TextBlock Style="{StaticResource MenoIconText}" Text=": مدل دستگاه"  FontSize="13" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="207,60,0,0" Height="27" Width="90"/>
-                    <TextBlock Style="{StaticResource MenoIconText}" Text=": نام کارشناس"  FontSize="13" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="207,111,0,0" Height="27" Width="96"/>
-                    <TextBox x:Name="txtSearch_Copy3" Margin="10,10,0,0" Height="27" Width="190" Background="WhiteSmoke" Foreground="Black"
+                    <TextBlock Style="{StaticResource MenoIconText}" Text=": مدل دستگاه"  FontSize="13" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="207,109,0,0" Height="27" Width="90"/>
+                    <TextBlock Style="{StaticResource MenoIconText}" Text=": نام کارشناس"  FontSize="13" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="207,155,0,0" Height="27" Width="96"/>
+                    <persianDateControls:PersianDatePicker x:Name="txtDueDate" Margin="50,9,0,318" HorizontalAlignment="Left" Height="30" Width="110"/>
+                    <TextBox x:Name="txtDeviceModel" Margin="10,109,0,0" Height="27" Width="190" Background="WhiteSmoke" Foreground="Black"
                 FontSize="13" HorizontalAlignment="Left"
                 VerticalAlignment="Top" FlowDirection="RightToLeft"
                 VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" >
@@ -90,7 +83,7 @@
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <TextBox x:Name="txtSearch_Copy4" Margin="10,60,0,0" Height="27" Width="190" Background="WhiteSmoke" Foreground="Black"
+                    <TextBox x:Name="txtExpertNmae" Margin="10,155,0,0" Height="27" Width="190" Background="WhiteSmoke" Foreground="Black"
                 FontSize="13" HorizontalAlignment="Left"
                 VerticalAlignment="Top" FlowDirection="RightToLeft"
                 VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" >
@@ -101,19 +94,8 @@
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <TextBox x:Name="txtSearch_Copy5" Margin="10,111,0,0" Height="27" Width="190" Background="WhiteSmoke" Foreground="Black"
-                FontSize="13" HorizontalAlignment="Left"
-                VerticalAlignment="Top" FlowDirection="RightToLeft"
-                VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" >
-
-                        <TextBox.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="10"/>
-                            </Style>
-                        </TextBox.Resources>
-                    </TextBox>
-                    <TextBlock Style="{StaticResource MenoIconText}" Text=": آدرس"  FontSize="13" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="550,202,0,0" Height="26" Width="48"/>
-                    <TextBox x:Name="txtSearch_Copy6" Margin="12,204,0,0" Height="79" Width="528" Background="WhiteSmoke" Foreground="Black"
+                    <TextBlock Style="{StaticResource MenoIconText}" Text=": آدرس"  FontSize="13" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="549,202,0,0" Height="26" Width="48"/>
+                    <TextBox x:Name="txtAdress" Margin="350,203,0,0" Height="27" Width="190" Background="WhiteSmoke" Foreground="Black"
                 FontSize="13" HorizontalAlignment="Left"
                 VerticalAlignment="Top" FlowDirection="RightToLeft"
                 VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" >
@@ -125,10 +107,34 @@
                         </TextBox.Resources>
                     </TextBox>
 
-                    <Button Style="{StaticResource MenuButtonStorPage}" Background="#469126" Content="ثبت فاکتور" FontSize="13" Margin="12,299,502,8"/>
-                    <Button Style="{StaticResource MenuButtonStorPage}" Background="#53ad2b" Content="اضافه کردن محصول جدید" FontSize="11" Margin="152,299,362,8"/>
-                    <Button Style="{StaticResource MenuButtonStorPage}" Background="Red" Content="حذف محصول" FontSize="13" Margin="292,300,222,7"/>
-                    <Button Style="{StaticResource MenuButtonStorPage}" Background="#1067aa" Content="پرینت فاکتور" FontSize="11" Margin="432,300,82,7"/>
+                    <Button Style="{StaticResource MenuButtonStorPage}" Background="#469126" Content="ثبت فاکتور" FontSize="13" Margin="12,269,502,38"/>
+                    <Button Style="{StaticResource MenuButtonStorPage}" Background="#53ad2b" Content="اضافه کردن محصول جدید" FontSize="11" Margin="152,269,362,38" Click="Button_Click_1"/>
+                    <Button Style="{StaticResource MenuButtonStorPage}" Background="Red" Content="حذف محصول" FontSize="13" Margin="292,270,222,37"/>
+                    <Button Style="{StaticResource MenuButtonStorPage}" Background="#1067aa" Content="پرینت فاکتور" FontSize="11" Margin="432,270,82,37"/>
+                    <TextBlock Style="{StaticResource MenoIconText}" Text=": تعداد کالا"  FontSize="13" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="207,203,0,0" Height="27" Width="96"/>
+                    <TextBox x:Name="txtProductCount" Margin="10,203,0,0" Height="27" Width="190" Background="WhiteSmoke" Foreground="Black"
+                        FontSize="13" HorizontalAlignment="Left"
+                        VerticalAlignment="Top" FlowDirection="RightToLeft"
+                        VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" >
+
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="10"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                    <TextBlock Style="{StaticResource MenoIconText}" Text=": نام دستگاه"  FontSize="13" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="207,58,0,0" Height="27" Width="90"/>
+                    <TextBox x:Name="txtProductName" Margin="10,58,0,0" Height="27" Width="190" Background="WhiteSmoke" Foreground="Black"
+                        FontSize="13" HorizontalAlignment="Left"
+                        VerticalAlignment="Top" FlowDirection="RightToLeft"
+                        VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" >
+
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="10"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
 
 
                 </Grid>
@@ -137,15 +143,14 @@
 
             <Border Grid.Row="1" Grid.Column="1">
                 <StackPanel>
-                    <DataGrid Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" x:Name="membersDataGrid" Height="260" MaxHeight="650" Width="640">
+                    <DataGrid Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" x:Name="SalesInvDataGrid" Height="260" MaxHeight="650" Width="640">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="طرف حساب" IsReadOnly="True" Width="*" Binding="{Binding Bank}"/>
-                            <DataGridTextColumn Header="بهای پرداخت" IsReadOnly="True" Width="*" Binding="{Binding Bank}"/>
-                            <DataGridTextColumn Header="فی واحد" IsReadOnly="True" Width="*" Binding="{Binding Bank}"/>
-                            <DataGridTextColumn Header="تعداد کالا" IsReadOnly="True" Width="*" Binding="{Binding Bank}"/>
-                            <DataGridTextColumn Header="کد کالا" IsReadOnly="True" Width="*" Binding="{Binding Price}"/>
-                            <DataGridTextColumn Header="نام کالا" IsReadOnly="True" Width="*" Binding="{Binding Number}"/>
-                            <DataGridTextColumn x:Name="ID" Visibility="Hidden" Header="ردیف" IsReadOnly="True" Width="auto" Binding="{Binding Date}"/>
+                            <DataGridTextColumn Header="مدل دستگاه" IsReadOnly="True" Width="*" Binding="{Binding DeviceModel}"/>
+                            <DataGridTextColumn Header="بهای پرداخت" IsReadOnly="True" Width="*" Binding="{Binding TPRice}"/>
+                            <DataGridTextColumn Header="فی واحد" IsReadOnly="True" Width="*" Binding="{Binding FiVahed}"/>
+                            <DataGridTextColumn Header="تعداد کالا" IsReadOnly="True" Width="*" Binding="{Binding ProductCount}"/>
+                            <DataGridTextColumn Header="نام کالا" IsReadOnly="True" Width="*" Binding="{Binding ProductName}"/>
+                            <DataGridTextColumn x:Name="ID" Visibility="Hidden" Header="ردیف" IsReadOnly="True" Width="auto" Binding="{Binding Id}"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </StackPanel>
@@ -162,11 +167,11 @@
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <DataGrid Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" x:Name="membersDataGrid2" Height="223" MaxHeight="650" Width="314">
+                    <DataGrid Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" x:Name="membersDataGrid" Height="223" MaxHeight="650" Width="314">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="نام خانوادگی" IsReadOnly="True" Width="*" Binding="{Binding Price}"/>
-                            <DataGridTextColumn Header="نام" IsReadOnly="True" Width="*" Binding="{Binding Number}"/>
-                            <DataGridTextColumn x:Name="ID2" Visibility="Hidden" Header="ردیف" IsReadOnly="True" Width="auto" Binding="{Binding Date}"/>
+                            <DataGridTextColumn Header="نام خانوادگی" IsReadOnly="True" Width="*" Binding="{Binding Family}"/>
+                            <DataGridTextColumn Header="نام" IsReadOnly="True" Width="*" Binding="{Binding Name}"/>
+                            <DataGridTextColumn x:Name="ID2" Visibility="Hidden" Header="ردیف" IsReadOnly="True" Width="auto" Binding="{Binding Id}"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </StackPanel>
@@ -183,13 +188,14 @@
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <DataGrid Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" x:Name="membersDataGrid3" Height="313" MaxHeight="650" Width="334">
+                    <DataGrid Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" x:Name="StoreDataGrid" Height="313" MaxHeight="650" Width="334" SelectionChanged="StoreDataGrid_SelectionChanged" >
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="قیمت کالا" IsReadOnly="True" Width="*" Binding="{Binding Price}"/>
-                            <DataGridTextColumn Header="کد کالا" IsReadOnly="True" Width="*" Binding="{Binding Price}"/>
-                            <DataGridTextColumn Header="تعداد کالا" IsReadOnly="True" Width="*" Binding="{Binding Price}"/>
-                            <DataGridTextColumn Header="نام کالا" IsReadOnly="True" Width="*" Binding="{Binding Number}"/>
-                            <DataGridTextColumn x:Name="ID3" Visibility="Hidden" Header="ردیف" IsReadOnly="True" Width="auto" Binding="{Binding Date}"/>
+                            <DataGridTextColumn Header="قیمت" IsReadOnly="True" Width="*" Binding="{Binding Price}"/>
+                            <DataGridTextColumn Header="کد کالا" IsReadOnly="True" Width="*" Binding="{Binding ProductCode}"/>
+                            <DataGridTextColumn Header="تعداد" IsReadOnly="True" Width="*" Binding="{Binding CountOfProduct}"/>
+                            <DataGridTextColumn Header="مدل" IsReadOnly="True" Width="*" Binding="{Binding ProductName}"/>
+                            <DataGridTextColumn Header="نام" IsReadOnly="True" Width="*" Binding="{Binding ProductName}"/>
+                            <DataGridTextColumn x:Name="ID3" Visibility="Hidden" Header="ردیف" IsReadOnly="True" Width="auto" Binding="{Binding Id}"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </StackPanel>

@@ -9,6 +9,6 @@ namespace Aqua.Abstarctions
 {
     public interface IPurchaseInvoice
     {
-        bool UpdatePurchaseInvoice(PurchaseInvoice purchaseInvoice);
+        bool UpdatePurchaseInvoice(SalesInvoice SalesInvoice);
     }
 }

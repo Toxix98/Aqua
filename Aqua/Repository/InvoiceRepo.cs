@@ -20,7 +20,8 @@ namespace Aqua.Repository
         }
         public IEnumerable<invoices> GetInvoicesByfilter(string parameter)
         {
-            return db.Invoices.Where(i=> i.SearchDateInvoice.Contains(parameter) || i.CustomerName.Contains(parameter) || i.ExpertName.Contains(parameter));
+            return db.Invoices.Where(i => i.SearchNextVisitDate.Contains(parameter) || i.SearchDateOfWork.Contains(parameter) ||
+            i.CustomerName.Contains(parameter) || i.ExpertName.Contains(parameter) || i.CustomerSubCode.Contains(parameter));
         }
 
         public bool UpdateInvoice(invoices invoices)

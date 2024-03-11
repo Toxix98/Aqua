@@ -16,11 +16,15 @@ namespace Aqua.MVVM.Models
         [MaxLength(150)]
         public string ProductName { get; set; }
 
-        [MaxLength(150)]
-        public string ProductCode { get; set; }
-
         public int ProductCount { get; set; }
 
+        [MaxLength(200)]
+        public string DeviceModel { get; set; }
+
         public decimal ProductPrice { get; set; }
+
+        public int FiVahed { get; set; }
+
+        public int TPRice { get; set; }
     }
 }

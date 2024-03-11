@@ -53,15 +53,21 @@ namespace Aqua.MVVM.ViewModels
         {
             return _baseRepo.GetItems();
         }
-        public void SaveAssests(string ExpertName, string SearchDateInvoice, string CustomerName, int TotalPrice, int ID)
+        public void SaveAssests(string ExpertName, string SearchNextVisitDate, string SearchDateOfWork, string CustomerName, int TotalPrice, string CustomerSubCode,
+            string CustomerPhoneNumber, string Address, int ID)
         {
             if (ID == 0)
             {
                 invoices invoices = new invoices()
                 {
                     ExpertName = ExpertName,
-                    SearchDateInvoice = SearchDateInvoice,
-                    DateOfSalesInvoice = DateTime.ParseExact(SearchDateInvoice, "yyyy/M/d", CultureInfo.InvariantCulture),
+                    SearchNextVisitDate = SearchNextVisitDate,
+                    NextVisitDate = DateTime.ParseExact(SearchNextVisitDate, "yyyy/M/d", CultureInfo.InvariantCulture),
+                    SearchDateOfWork = SearchDateOfWork,
+                    DateOfWork = DateTime.ParseExact(SearchDateOfWork, "yyyy/M/d", CultureInfo.InvariantCulture),
+                    Address = Address,
+                    CustomerPhoneNumber = CustomerPhoneNumber,
+                    CustomerSubCode = CustomerSubCode,
                     CustomerName = CustomerName,
                     TotalPrice = Convert.ToDecimal(TotalPrice),
                 };
@@ -74,12 +80,18 @@ namespace Aqua.MVVM.ViewModels
                 if (exisitingINV != null)
                 {
                     exisitingINV.ExpertName = ExpertName;
-                    exisitingINV.SearchDateInvoice = SearchDateInvoice;
-                    exisitingINV.DateOfSalesInvoice = DateTime.ParseExact(SearchDateInvoice, "yyyy/M/d", CultureInfo.InvariantCulture);
+                    exisitingINV.SearchNextVisitDate = SearchNextVisitDate;
+                    exisitingINV.NextVisitDate = DateTime.ParseExact(SearchNextVisitDate, "yyyy/M/d", CultureInfo.InvariantCulture);
+                    exisitingINV.SearchDateOfWork = SearchDateOfWork;
+                    exisitingINV.DateOfWork = DateTime.ParseExact(SearchDateOfWork, "yyyy/M/d", CultureInfo.InvariantCulture);
                     exisitingINV.CustomerName = CustomerName;
                     exisitingINV.TotalPrice = Convert.ToDecimal(TotalPrice);
+                    exisitingINV.Address = Address;
+                    exisitingINV.CustomerSubCode = CustomerSubCode;
+                    exisitingINV.CustomerPhoneNumber = CustomerPhoneNumber;
 
-                    if (ExpertName == "" || SearchDateInvoice == "" || CustomerName == "" || TotalPrice == null)
+                    if (ExpertName == "" || SearchNextVisitDate == "" || CustomerName == "" || TotalPrice == null || SearchDateOfWork == "" || CustomerSubCode == ""
+                        || CustomerPhoneNumber == "")
                     {
                         Application.Current.Dispatcher.Invoke(() =>
                         {

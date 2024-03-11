@@ -17,17 +17,17 @@ namespace Aqua.Repository
             db = context;
         }
 
-        public bool UpdatePurchaseInvoice(MVVM.Models.PurchaseInvoice purchaseInvoice)
+        public bool UpdatePurchaseInvoice(MVVM.Models.SalesInvoice SalesInvoice)
         {
             try
             {
-                db.Update(purchaseInvoice);
+                db.Update(SalesInvoice);
                 db.SaveChanges();
                 return true;
             }
             catch (Exception ex)
             {
-                StatuceMessage = "Error for Updating PurchaseInvoice : " + ex.Message;
+                StatuceMessage = "Error for Updating SalesInvoice : " + ex.Message;
                 return false;
             }
         }

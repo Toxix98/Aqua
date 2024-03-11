@@ -95,8 +95,7 @@ namespace Aqua
 
         private void btnInvoice_Click(object sender, RoutedEventArgs e)
         {
-            SalesInvoicePage page = new SalesInvoicePage();
-            page.ShowDialog();
+            fContainer.Navigate(new System.Uri("MVVM/Views/InvoicesPages/AllInvoices.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void btnSetting_Click(object sender, RoutedEventArgs e)

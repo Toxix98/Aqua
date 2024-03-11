@@ -32,7 +32,7 @@ namespace Aqua.Repository
         public IEnumerable<Store> GetStoreItemByFilter(string parameter)
         {
             return db.Store.Where(p => p.Productype.Contains(parameter) || p.Description.Contains(parameter) ||
-                p.ProductName.Contains(parameter) || p.ProductCode.Contains(parameter)).ToList();
+                p.ProductName.Contains(parameter) || p.ProductCode.Contains(parameter) || p.ProductDevice.Contains(parameter)).ToList();
         }
     }
 }
