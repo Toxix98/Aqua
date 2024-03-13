@@ -86,7 +86,10 @@ namespace Aqua.MVVM.Views.BankChekPages
 
         private void txtChekNumber_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-
+            if (!char.IsDigit(e.Text, 0))
+            {
+                e.Handled = true;
+            }
         }
 
         private void txtChekPrice_PreviewTextInput(object sender, TextCompositionEventArgs e)

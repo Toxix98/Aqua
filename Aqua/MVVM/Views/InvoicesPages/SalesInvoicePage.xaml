@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Aqua.Pages"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:persianDateControls="clr-namespace:Mohsen.PersianDateControls;assembly=Mohsen.PersianDateControls"
         mc:Ignorable="d"
         Title="SalesInvoicePage" Height="650" Width="1010" WindowStartupLocation="CenterScreen" WindowStyle="None" Background="Transparent" AllowsTransparency="True" MouseDown="Window_MouseDown">
@@ -60,7 +61,7 @@
                     <TextBox x:Name="txtPhoneNumber" Margin="350,155,0,0" Height="27" Width="190" Background="WhiteSmoke" Foreground="Black"
                 FontSize="13" HorizontalAlignment="Left"
                 VerticalAlignment="Top" FlowDirection="RightToLeft"
-                VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" >
+                VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" PreviewTextInput="txtPhoneNumber_PreviewTextInput">
 
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
@@ -75,7 +76,7 @@
                     <TextBox x:Name="txtDeviceModel" Margin="10,109,0,0" Height="27" Width="190" Background="WhiteSmoke" Foreground="Black"
                 FontSize="13" HorizontalAlignment="Left"
                 VerticalAlignment="Top" FlowDirection="RightToLeft"
-                VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" >
+                VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" IsReadOnly="True">
 
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
@@ -107,27 +108,27 @@
                         </TextBox.Resources>
                     </TextBox>
 
-                    <Button Style="{StaticResource MenuButtonStorPage}" Background="#469126" Content="ثبت فاکتور" FontSize="13" Margin="12,269,502,38"/>
-                    <Button Style="{StaticResource MenuButtonStorPage}" Background="#53ad2b" Content="اضافه کردن محصول جدید" FontSize="11" Margin="152,269,362,38" Click="Button_Click_1"/>
-                    <Button Style="{StaticResource MenuButtonStorPage}" Background="Red" Content="حذف محصول" FontSize="13" Margin="292,270,222,37"/>
-                    <Button Style="{StaticResource MenuButtonStorPage}" Background="#1067aa" Content="پرینت فاکتور" FontSize="11" Margin="432,270,82,37"/>
+                    <Button Style="{StaticResource MenuButtonStorPage}" Background="#469126" Content="ثبت فاکتور" FontSize="13" Margin="18,295,497,12" Click="Button_Click_3"/>
+                    <Button Style="{StaticResource MenuButtonStorPage}" Background="#53ad2b" Content="اضافه کردن محصول جدید" FontSize="11" Margin="158,295,357,12" Click="Button_Click_1"/>
+                    <Button Style="{StaticResource MenuButtonStorPage}" Background="Red" Content="حذف محصول" FontSize="13" Margin="298,296,217,11" Click="Button_Click_2"/>
+                    <Button Style="{StaticResource MenuButtonStorPage}" Background="#1067aa" Content="پرینت فاکتور" FontSize="11" Margin="438,296,77,11" Click="Button_Click_4"/>
                     <TextBlock Style="{StaticResource MenoIconText}" Text=": تعداد کالا"  FontSize="13" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="207,203,0,0" Height="27" Width="96"/>
-                    <TextBox x:Name="txtProductCount" Margin="10,203,0,0" Height="27" Width="190" Background="WhiteSmoke" Foreground="Black"
+                    <xctk:IntegerUpDown x:Name="txtProductCount" Margin="10,203,0,0" Height="27" Width="190" Background="WhiteSmoke" Foreground="Black"
                         FontSize="13" HorizontalAlignment="Left"
                         VerticalAlignment="Top" FlowDirection="RightToLeft"
                         VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" >
 
-                        <TextBox.Resources>
+                        <xctk:IntegerUpDown.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
                             </Style>
-                        </TextBox.Resources>
-                    </TextBox>
+                        </xctk:IntegerUpDown.Resources>
+                    </xctk:IntegerUpDown>
                     <TextBlock Style="{StaticResource MenoIconText}" Text=": نام دستگاه"  FontSize="13" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="207,58,0,0" Height="27" Width="90"/>
                     <TextBox x:Name="txtProductName" Margin="10,58,0,0" Height="27" Width="190" Background="WhiteSmoke" Foreground="Black"
                         FontSize="13" HorizontalAlignment="Left"
                         VerticalAlignment="Top" FlowDirection="RightToLeft"
-                        VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" >
+                        VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" IsReadOnly="True">
 
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
@@ -135,6 +136,18 @@
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
+                    <TextBlock Style="{StaticResource MenoIconText}" Text=": مبلغ کل"  FontSize="13" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="378,252,0,0" Height="26" Width="52"/>
+                    <xctk:IntegerUpDown x:Name="txtTotalPrice" Margin="179,253,0,0" Height="27" Width="190" Background="WhiteSmoke" Foreground="Black"
+                        FontSize="13" HorizontalAlignment="Left"
+                        VerticalAlignment="Top" FlowDirection="RightToLeft"
+                        VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" IsReadOnly="True">
+
+                        <xctk:IntegerUpDown.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="10"/>
+                            </Style>
+                        </xctk:IntegerUpDown.Resources>
+                    </xctk:IntegerUpDown>
 
 
                 </Grid>
@@ -167,7 +180,7 @@
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <DataGrid Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" x:Name="membersDataGrid" Height="223" MaxHeight="650" Width="314">
+                    <DataGrid Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" x:Name="membersDataGrid" Height="223" MaxHeight="650" Width="314" SelectionChanged="membersDataGrid_SelectionChanged">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="نام خانوادگی" IsReadOnly="True" Width="*" Binding="{Binding Family}"/>
                             <DataGridTextColumn Header="نام" IsReadOnly="True" Width="*" Binding="{Binding Name}"/>

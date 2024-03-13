@@ -54,7 +54,7 @@ namespace Aqua.MVVM.ViewModels
             return _baseRepo.GetItems();
         }
         public void SaveAssests(string ExpertName, string SearchNextVisitDate, string SearchDateOfWork, string CustomerName, int TotalPrice, string CustomerSubCode,
-            string CustomerPhoneNumber, string Address, int ID)
+            string CustomerPhoneNumber, string Address, int InvoiceId ,int ID)
         {
             if (ID == 0)
             {
@@ -70,6 +70,7 @@ namespace Aqua.MVVM.ViewModels
                     CustomerSubCode = CustomerSubCode,
                     CustomerName = CustomerName,
                     TotalPrice = Convert.ToDecimal(TotalPrice),
+                    InvoiceID = InvoiceId
                 };
                 _baseRepo.AddItem(invoices);
                 InvoicesItem.Add(invoices);

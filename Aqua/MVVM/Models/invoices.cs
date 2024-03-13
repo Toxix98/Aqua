@@ -13,6 +13,8 @@ namespace Aqua.MVVM.Models
 
         public decimal TotalPrice { get; set; }
 
+        public int InvoiceID { get; set; }
+
         [MaxLength (150)]
         public string CustomerName { get; set; }
 

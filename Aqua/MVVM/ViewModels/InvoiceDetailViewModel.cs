@@ -1,4 +1,5 @@
-﻿using Aqua.MVVM.Models;
+﻿using Aqua.Data;
+using Aqua.MVVM.Models;
 using Aqua.Repository;
 using System;
 using System.Collections.Generic;
@@ -52,6 +53,21 @@ namespace Aqua.MVVM.ViewModels
             return _baseRepo.GetItems();
         }
 
+        public int GetINVID()
+        {
+            using (var db = new AquaJoyDBContext())
+            {
+                var INV = db.InvoiceDetails.OrderByDescending(i => i.InvoiceId).FirstOrDefault();
+                if (INV != null)
+                {
+                    return INV.InvoiceId + 1;
+                }
+                else
+                {
+                    return 1;
+                }
+            }
+        }
         public void SaveAssests(string ProductName, string ProductCode, int ProductCount, int ProductPrice, int InvoiceId, string DeviceModel, int ID, int FiVahed,
             int TPRice)
         {

@@ -40,6 +40,7 @@ namespace Aqua.MVVM.Views.InvoicesPages
         {
             SalesInvoicePage salesInvoicePage = new SalesInvoicePage();
             salesInvoicePage.ShowDialog();
+            BindGrid();
         }
     }
 }
