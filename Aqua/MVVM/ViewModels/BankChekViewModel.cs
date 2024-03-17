@@ -61,7 +61,7 @@ namespace Aqua.MVVM.ViewModels
             return _baseRepo.GetItems();
         }
 
-        public void SaveBankAccount(string txtChekNum, string txtChekBank, decimal txtChekPrice, string txtAsignmen, string txtIssuDate, string txtDueDate, string txtDescriptions, int ID)
+        public void SaveBankAccount(string txtChekNum, string txtChekBank, decimal txtChekPrice, string txtAsignmen, string txtIssuDate, string txtDueDate, string txtDescriptions, int ID, string type)
         {
             if (ID == 0)
             {
@@ -76,6 +76,7 @@ namespace Aqua.MVVM.ViewModels
                     DueDate = DateTime.ParseExact(txtDueDate, "yyyy/M/d", CultureInfo.InvariantCulture),
                     DueDateSTR = txtDueDate,
                     Descriptions = txtDescriptions,
+                    Type = type,
                 };
                 _baseRepo.AddItem(bankChek);
                 BankChekItem.Add(bankChek);

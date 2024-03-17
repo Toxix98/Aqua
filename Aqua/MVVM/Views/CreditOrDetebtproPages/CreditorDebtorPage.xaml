@@ -29,10 +29,10 @@
                 </TextBox>
                 <TextBlock Text=":" Style="{StaticResource MenoIconText}" FontFamily="Dirooz FD" FontSize="15" VerticalAlignment="Center" Margin="0 0 5 0"/>
                 <TextBlock Text="جست و جو" Style="{StaticResource MenoIconText}" FontFamily="Dirooz FD" FontSize="15" VerticalAlignment="Center"/>
-                <Button Style="{StaticResource MenuButtonStorPage}" Width="130" Margin="5" Background="#469126" Content="اضافه کردن" FontSize="15"/>
-                <Button Style="{StaticResource MenuButtonStorPage}" Width="130" Margin="5" Background="#53ad2b" Content="تازه سازی" FontSize="15"/>
-                <Button Style="{StaticResource MenuButtonStorPage}" Width="130" Margin="5" Background="Red" Content="حذف" FontSize="15"/>
-                <Button Style="{StaticResource MenuButtonStorPage}" Width="130" Margin="5" Background="#1067aa" Content="ویرایش " FontSize="15"/>
+                <Button Style="{StaticResource MenuButtonStorPage}" Width="130" Margin="5" Background="#469126" Content="اضافه کردن" FontSize="15" Click="Button_Click"/>
+                <Button Style="{StaticResource MenuButtonStorPage}" Width="130" Margin="5" Background="#53ad2b" Content="تازه سازی" FontSize="15" Click="Button_Click_1"/>
+                <Button Style="{StaticResource MenuButtonStorPage}" Width="130" Margin="5" Background="Red" Content="حذف" FontSize="15" Click="Button_Click_2"/>
+                <Button Style="{StaticResource MenuButtonStorPage}" Width="130" Margin="5" Background="#1067aa" Content="ویرایش " FontSize="15" Click="Button_Click_3"/>
             </StackPanel>
 
         </Border>
@@ -42,12 +42,12 @@
                 <StackPanel>
                     <DataGrid Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="5" x:Name="membersDataGrid" Height="540" MaxHeight="650" VerticalAlignment="Bottom">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="توضیحات" IsReadOnly="True" Width="*" Binding="{Binding Bank}"/>
-                            <DataGridTextColumn Header="تاریخ " IsReadOnly="True" Width="*" Binding="{Binding Bank}"/>
-                            <DataGridTextColumn Header="نوع" IsReadOnly="True" Width="*" Binding="{Binding Bank}"/>
+                            <DataGridTextColumn Header="توضیحات" IsReadOnly="True" Width="*" Binding="{Binding Descriptions}"/>
+                            <DataGridTextColumn Header="تاریخ " IsReadOnly="True" Width="*" Binding="{Binding SerachDate}"/>
+                            <DataGridTextColumn Header="نوع" IsReadOnly="True" Width="*" Binding="{Binding Type}"/>
                             <DataGridTextColumn Header="مبلغ" IsReadOnly="True" Width="*" Binding="{Binding Price}"/>
-                            <DataGridTextColumn Header="نام" IsReadOnly="True" Width="*" Binding="{Binding Number}"/>
-                            <DataGridTextColumn x:Name="ID" Visibility="Hidden" Header="ردیف" IsReadOnly="True" Width="auto" Binding="{Binding Date}"/>
+                            <DataGridTextColumn Header="نام" IsReadOnly="True" Width="*" Binding="{Binding Name}"/>
+                            <DataGridTextColumn x:Name="ID" Visibility="Hidden" Header="ردیف" IsReadOnly="True" Width="auto" Binding="{Binding id}"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </StackPanel>

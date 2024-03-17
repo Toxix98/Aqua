@@ -34,5 +34,7 @@ namespace Aqua.MVVM.Models
 
         [MaxLength(800)]
         public string? Descriptions { get; set; }
+
+        public string Type { get; set; }
     }
 }

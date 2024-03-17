@@ -18,13 +18,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MessageBox = System.Windows.MessageBox;
-using Stimulsoft.Report;
-using Stimulsoft.Report.Components;
-using Stimulsoft.Report.Dictionary;
-using Stimulsoft.Report.Export;
 using System.Data;
-using Stimulsoft.Editor;
-using Stimulsoft.Report.Wpf;
+using MVVM.Views.InvoicesPages;
 
 namespace Aqua.Pages
 {
@@ -38,6 +33,15 @@ namespace Aqua.Pages
         private CustomerViewModel _customerViewModel;
         private InvoiceDetailViewModel _invDetails;
         private InvociesViewModel _invViewModels;
+        public string CustomerName = "";
+        public string SUBCODE = "";
+        public string PHONE = "";
+        public string ADRESS = "";
+        public string DATEISSU = "";
+        public string DEVICEMODEL = "";
+        public string EXPERTNAME = "";
+        public string TOTALPRICE = "";
+        public int CountId = 0;
         public SalesInvoicePage()
         {
             InitializeComponent();
@@ -50,6 +54,8 @@ namespace Aqua.Pages
             DataContext = _salesINVviewModel;
             DataContext = _storeViewModel;
             DataContext = _customerViewModel;
+
+            txtTotalPrice.Value = 0;
 
             PurchaseInvoiceBindGrid();
             StorBindGrid();
@@ -74,6 +80,7 @@ namespace Aqua.Pages
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+            this.Visibility = Visibility.Collapsed;
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -95,10 +102,18 @@ namespace Aqua.Pages
                 }
                 else
                 {
-                    _salesINVviewModel.SaveSalesInvoice(txtProductName.Text, txtDeviceModel.Text, Convert.ToInt32(txtProductCount.Value), Price, TR);
-                    MessageBox.Show("محصول با موفقیت اضافه شد", "پیام", MessageBoxButton.OK, MessageBoxImage.Information);
-                    PurchaseInvoiceBindGrid();
-                    txtTotalPrice.Text += TR.ToString();
+                    MVVM.Models.Store Store = StoreDataGrid.SelectedItem as MVVM.Models.Store;
+                    int IDS = Convert.ToInt32(Store.Id);
+                    int count = Convert.ToInt32(txtProductCount.Text);
+                    if (_storeViewModel.SingleUpdate(count, IDS) == true)
+                    {
+                        _salesINVviewModel.SaveSalesInvoice(txtProductName.Text, txtDeviceModel.Text, Convert.ToInt32(txtProductCount.Value), Price, TR, IDS);
+                        MessageBox.Show("محصول با موفقیت اضافه شد", "پیام", MessageBoxButton.OK, MessageBoxImage.Information);
+                        PurchaseInvoiceBindGrid();
+                        txtTotalPrice.Value += Convert.ToInt32(TR);
+                        StorBindGrid();
+                    }
+                    StorBindGrid();
                 }
             }
             catch (Exception ex)
@@ -138,7 +153,11 @@ namespace Aqua.Pages
                 SalesInvoice salesInvoice = SalesInvDataGrid.SelectedItem as SalesInvoice;
 
                 int ProID = salesInvoice.Id;
+                CountId = salesInvoice.ProductCount;
+                int SalId = salesInvoice.ProID;
+                _storeViewModel.DeletDecresCount(CountId, SalId);
                 _salesINVviewModel.DeletSalesInvoice(ProID);
+                StorBindGrid();
                 PurchaseInvoiceBindGrid();
             }
         }
@@ -150,13 +169,19 @@ namespace Aqua.Pages
             {
                 string Name = "";
                 string family = "";
+                string subcode = "";
+                string Phone = "";
                 if (membersDataGrid.SelectedItem != null)
                 {
-                    Name = (membersDataGrid.SelectedCells[0].Column.GetCellContent(membersDataGrid.SelectedItem) as TextBlock).Text;
-                    family = (membersDataGrid.SelectedCells[1].Column.GetCellContent(membersDataGrid.SelectedItem) as TextBlock).Text;
+                    Name = (membersDataGrid.SelectedCells[3].Column.GetCellContent(membersDataGrid.SelectedItem) as TextBlock).Text;
+                    family = (membersDataGrid.SelectedCells[2].Column.GetCellContent(membersDataGrid.SelectedItem) as TextBlock).Text;
+                    subcode = (membersDataGrid.SelectedCells[0].Column.GetCellContent(membersDataGrid.SelectedItem) as TextBlock).Text;
+                    Phone = (membersDataGrid.SelectedCells[1].Column.GetCellContent(membersDataGrid.SelectedItem) as TextBlock).Text;
                 }
 
                 txtCustomerName.Text = Name + " " + family;
+                txtSubCode.Text = subcode;
+                txtPhoneNumber.Text = Phone;
             }
             catch (Exception ex)
             {
@@ -228,13 +253,25 @@ namespace Aqua.Pages
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("EXName");
-            dataTable.Rows.Add(txtExpertNmae.Text);
-            StiReport report = new StiReport();
-            report.Load("kir.mrt");
-            report.RegData("DT", dataTable);
-            report.Show();
+            CustomerName = txtCustomerName.Text;
+            SUBCODE = txtSubCode.Text;
+            PHONE = txtPhoneNumber.Text;
+            ADRESS = txtAdress.Text;
+            DATEISSU = txtIssuDate.Text;
+            DEVICEMODEL = txtDeviceModel.Text;
+            EXPERTNAME = txtExpertNmae.Text;
+            TOTALPRICE = txtTotalPrice.Text;
+
+            PrintSalesInvoice printSalesInvoice = new PrintSalesInvoice();
+            printSalesInvoice.CusNameTex.Text = CustomerName;
+            printSalesInvoice.SubCodeText.Text = SUBCODE;
+            printSalesInvoice.PhoneText.Text = PHONE;
+            printSalesInvoice.AddressText.Text = ADRESS;
+            printSalesInvoice.DateIssuText.Text = DATEISSU;
+            printSalesInvoice.DeviceModelText.Text = DEVICEMODEL;
+            printSalesInvoice.ExpertNameText.Text = EXPERTNAME;
+            printSalesInvoice.TotalPruceText.Text = TOTALPRICE;
+            printSalesInvoice.ShowDialog();
         }
     }
 }

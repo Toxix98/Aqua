@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Xml.Serialization;
 
 namespace Aqua.MVVM.ViewModels
 {
@@ -27,12 +28,14 @@ namespace Aqua.MVVM.ViewModels
 
         private BaseRepo<InvoiceDetails> _baseRepo;
         private InvoiceDetailsRepo _invoiceDetailsRepo;
+        private static BaseRepo<InvoiceDetails> _baseRepo2;
 
         public InvoiceDetailViewModel()
         {
             _baseRepo = new BaseRepo<InvoiceDetails>(new Data.AquaJoyDBContext());
             _invoiceDetailsRepo = new InvoiceDetailsRepo(new Data.AquaJoyDBContext());
             InvoiceDetailsItem = new ObservableCollection<InvoiceDetails>(_baseRepo.GetItems());
+            _baseRepo2 = new BaseRepo<InvoiceDetails>(new Data.AquaJoyDBContext());
         }
 
         public InvoiceDetails GetInvoiceDetailsById(int Id)
@@ -68,6 +71,33 @@ namespace Aqua.MVVM.ViewModels
                 }
             }
         }
+
+        public static List<InvoiceDetails> SearchByInvoiceId(int invoiceId)
+        {
+            List<InvoiceDetails> allDetails = _baseRepo2.GetItems();
+            List<InvoiceDetails> searchResults = new List<InvoiceDetails>();
+
+            foreach (var item in allDetails)
+            {
+                if (item.InvoiceId == invoiceId)
+                {
+                    searchResults.Add(item);
+                }
+            }
+
+            return searchResults;
+        }
+
+        public static void DeletByInvoiceId(int invoiceId)
+        {
+            List<InvoiceDetails> Details = SearchByInvoiceId(invoiceId);
+
+            foreach(var deatils in Details)
+            {
+                _baseRepo2.DeletItem(deatils);
+            }
+        }
+
         public void SaveAssests(string ProductName, string ProductCode, int ProductCount, int ProductPrice, int InvoiceId, string DeviceModel, int ID, int FiVahed,
             int TPRice)
         {
@@ -88,7 +118,7 @@ namespace Aqua.MVVM.ViewModels
             }
             else
             {
-                var exisitingINV = InvoiceDetailsItem.FirstOrDefault(i => i.Id == ID);
+                var exisitingINV = InvoiceDetailsItem.FirstOrDefault(i => i.INVId == ID);
                 if (exisitingINV != null)
                 {
                     exisitingINV.ProductName = ProductName;

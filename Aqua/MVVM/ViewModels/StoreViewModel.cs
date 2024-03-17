@@ -61,7 +61,37 @@ namespace Aqua.MVVM.ViewModels
            return _storRepo.GetItem(Id);
         }
 
-        public void SaveProduct(string txtPN, int txtPC, int txtPP, string txtPD, string txtPCO, string txtPY, string txtDev, int ID)
+        public bool SingleUpdate(int Count, int ID)
+        {
+            var PRO = _storRepo.GetItem(ID);
+            PRO.CountOfProduct -= Count;
+            if(PRO.CountOfProduct < 0)
+            {
+                Application.Current.Dispatcher.Invoke(() =>
+                {
+                    MessageBox.Show("مجودی انبار کافی نیست", "خطا", MessageBoxButton.OK, MessageBoxImage.Error);
+                });
+                PRO.CountOfProduct += Count;
+                return false;
+            }
+            else
+            {
+                _storeRepo.UpdateStore(PRO);
+                _storeRepo.Save();
+                return true;
+            }
+        }
+
+        public bool DeletDecresCount(int Count, int ProID)
+        {
+            var Pro = _storRepo.GetItem(ProID);
+            Pro.CountOfProduct += Count;
+            _storeRepo.UpdateStore(Pro);
+            _storeRepo.Save();
+            return true;
+        }
+
+        public void SaveProduct(string txtPN, int txtPC, int txtPP, string txtPD, string txtPCO, string txtPY, string txtDev , int ID)
         {
             if (ID == 0)
             {
@@ -75,6 +105,8 @@ namespace Aqua.MVVM.ViewModels
                     Productype = txtPY,
                     ProductDevice = txtDev,
                 };
+
+
 
                 _storRepo.AddItem(Item);
                 StoreItems.Add(Item);

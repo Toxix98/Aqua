@@ -1,0 +1,85 @@
+﻿<Window x:Class="Aqua.MVVM.Views.CreditOrDetebtproPages.AddOrEditeCB"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Aqua.MVVM.Views.CreditOrDetebtproPages"
+        mc:Ignorable="d"
+        xmlns:persianDateControls="clr-namespace:Mohsen.PersianDateControls;assembly=Mohsen.PersianDateControls"
+        Height="260" Width="620" WindowStartupLocation="CenterScreen" WindowStyle="None" Background="Transparent">
+    <Border CornerRadius="5" Background="#edfefa" Loaded="Border_Loaded">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="3" Margin="0 20 0 0">
+                <Label Content=": نام" Margin="0 10 0 0" FontFamily="Dirooz FD" Foreground="Red"/>
+                <Label Content=": نوع" Margin="0 30 0 0" FontFamily="Dirooz FD" Foreground="Red"/>
+                <Label Content=": مبلغ" Margin="0 30 0 0" FontFamily="Dirooz FD" Foreground="Red"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2" Margin="0 20 0 0">
+                <TextBox x:Name="txtname" Margin="0 10 0 0" Height="30" Width="200" Background="WhiteSmoke" Foreground="Black"
+    FontSize="15" HorizontalAlignment="Center"
+    VerticalAlignment="Center" FlowDirection="RightToLeft"
+    VerticalContentAlignment="Center" FontFamily="Dirooz FD" BorderBrush="#3a3a3a">
+                    <TextBox.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+
+                <CheckBox x:Name="bedehkar" Grid.Row="1" Margin="0,25,0,0" 
+            Content="بدهکار" IsThreeState="True"
+            Checked="bedehkar_Checked"
+            FontFamily="Dirooz FD" Width="55"/>
+                
+                <CheckBox x:Name="bestankar" Margin="0 10 0 0"
+Content="بستانکار" IsThreeState="True"
+Checked="bestankar_Checked"
+FontFamily="Dirooz FD" Width="63"/>
+
+                <TextBox x:Name="txtPrice" Margin="0 15 0 0" Height="30" Width="200" Background="WhiteSmoke" Foreground="Black"
+    FontSize="15" HorizontalAlignment="Center"
+    VerticalAlignment="Center" FlowDirection="RightToLeft"
+    VerticalContentAlignment="Center" FontFamily="Dirooz FD" BorderBrush="#3a3a3a">
+                    <TextBox.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+
+                <Button x:Name="btnSave" Grid.Column="2" Width="103" Height="40" Margin="0,15,0,0" Style="{StaticResource ButtonStyle}" Background="Green" Content="افزودن" Foreground="White" FontFamily="Dirooz FD" Click="btnSave_Click"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Margin="0 20 20 0">
+                <Label Content=": تاریخ" Margin="0 10 0 0" FontFamily="Dirooz FD" Foreground="Red"/>
+                <Label Content=": توصیحات" Margin="0 30 0 0" FontFamily="Dirooz FD" Foreground="Red"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="0" Margin="45 20 0 0">
+                <persianDateControls:PersianDatePicker x:Name="txtDate" Margin="0 10 0 0" HorizontalAlignment="Center" Height="30"/>
+
+                <TextBox x:Name="txtDescriptions" Margin="0 30 0 0" Height="90" Width="200" Background="WhiteSmoke" Foreground="Black"
+FontSize="15" HorizontalAlignment="Center" FlowDirection="RightToLeft"
+VerticalContentAlignment="Top" FontFamily="Dirooz FD" BorderBrush="#3a3a3a">
+                    <TextBox.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+
+                <Button Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="100" Height="40" Margin="0,15,0,0" Style="{StaticResource ButtonStyle}" Background="Red" Content="بستن" Foreground="White" FontFamily="Dirooz FD" Click="Button_Click"/>
+
+            </StackPanel>
+
+        </Grid>
+    </Border>
+</Window>

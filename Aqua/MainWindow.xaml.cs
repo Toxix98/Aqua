@@ -20,11 +20,11 @@ namespace Aqua
         public MainWindow()
         {
             InitializeComponent();
-            //if (id == -1)
-            //{
-            //    LoginPage loginPage = new LoginPage(this);
-            //    loginPage.ShowDialog();
-            //}
+            if (id == -1)
+            {
+                LoginPage loginPage = new LoginPage(this);
+                loginPage.ShowDialog();
+            }
         }
 
 
@@ -85,7 +85,7 @@ namespace Aqua
 
         private void btnBillan_Click(object sender, RoutedEventArgs e)
         {
-            fContainer.Navigate(new System.Uri("MVVM/Views/Billan.xaml", UriKind.RelativeOrAbsolute));
+            fContainer.Navigate(new System.Uri("MVVM/Views/BillnaPages/Billan.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -105,7 +105,7 @@ namespace Aqua
 
         private void btnDetebtor_Click(object sender, RoutedEventArgs e)
         {
-            fContainer.Navigate(new System.Uri("MVVM/Views/CreditorDebtorPage.xaml", UriKind.RelativeOrAbsolute));
+            fContainer.Navigate(new System.Uri("MVVM/Views/CreditOrDetebtproPages/CreditorDebtorPage.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)

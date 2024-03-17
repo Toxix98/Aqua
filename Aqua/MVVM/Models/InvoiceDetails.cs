@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -9,7 +10,8 @@ namespace Aqua.MVVM.Models
 {
     public class InvoiceDetails
     {
-        public int Id { get; set; }
+        [Key]
+        public int INVId { get; set; }
 
         public int InvoiceId { get; set; }
 

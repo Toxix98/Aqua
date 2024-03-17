@@ -4,6 +4,7 @@ using Aqua.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Aqua.Migrations
 {
     [DbContext(typeof(AquaJoyDBContext))]
-    partial class AquaJoyDBContextModelSnapshot : ModelSnapshot
+    [Migration("20240314234546_E")]
+    partial class E
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -128,104 +131,9 @@ namespace Aqua.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("Type")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
                     b.ToTable("bankChek");
-                });
-
-            modelBuilder.Entity("Aqua.MVVM.Models.BillanNegetive", b =>
-                {
-                    b.Property<int>("IdNeg")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdNeg"));
-
-                    b.Property<string>("Date")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasKey("IdNeg");
-
-                    b.ToTable("BillanNegetive");
-                });
-
-            modelBuilder.Entity("Aqua.MVVM.Models.BillanPlus", b =>
-                {
-                    b.Property<int>("IdPlus")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdPlus"));
-
-                    b.Property<string>("Date")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("PlusName")
-                        .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasKey("IdPlus");
-
-                    b.ToTable("BillanPlus");
-                });
-
-            modelBuilder.Entity("Aqua.MVVM.Models.CreditorOrDetebtor", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Descriptions")
-                        .IsRequired()
-                        .HasMaxLength(800)
-                        .HasColumnType("nvarchar(800)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("SerachDate")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("Type")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.HasKey("id");
-
-                    b.ToTable("CreditorOrDetebtor");
                 });
 
             modelBuilder.Entity("Aqua.MVVM.Models.Customers", b =>
@@ -267,11 +175,11 @@ namespace Aqua.Migrations
 
             modelBuilder.Entity("Aqua.MVVM.Models.InvoiceDetails", b =>
                 {
-                    b.Property<int>("INVId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("INVId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("DeviceModel")
                         .IsRequired()
@@ -298,7 +206,7 @@ namespace Aqua.Migrations
                     b.Property<int>("TPRice")
                         .HasColumnType("int");
 
-                    b.HasKey("INVId");
+                    b.HasKey("Id");
 
                     b.ToTable("InvoiceDetails");
                 });

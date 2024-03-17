@@ -29,15 +29,28 @@
     <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
     <PackageReference Include="MahApps.Metro.IconPacks.Material" Version="4.11.0" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.2" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.2">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Mohsen.PersianDateControls" Version="1.0.1" />
     <PackageReference Include="PersianDatePicker" Version="1.1.0" />
-    <PackageReference Include="Stimulsoft.Reports.Net" Version="2023.1.1" />
-    <PackageReference Include="Stimulsoft.Reports.Wpf" Version="2023.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Stimulsoft.Base">
+      <HintPath>..\..\New folder (2)\ساخت-گزارش-در-MVC\TopLearn.Com_Stimul_MVC.rar\TopLearn.Com_Stimul_MVC\DLL\Stimulsoft.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Controls.Win">
+      <HintPath>..\..\New folder (3)\Stimulsoft.Controls.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Report">
+      <HintPath>..\..\New folder (2)\ساخت-گزارش-در-MVC\TopLearn.Com_Stimul_MVC.rar\TopLearn.Com_Stimul_MVC\DLL\Stimulsoft.Report.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Report.Win">
+      <HintPath>..\..\New folder (3)\Stimulsoft.Report.Win.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>

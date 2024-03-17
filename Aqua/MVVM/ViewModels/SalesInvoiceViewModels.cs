@@ -54,7 +54,7 @@ namespace Aqua.MVVM.ViewModels
             return _baseRepo.GetItems();
         }
 
-        public void SaveSalesInvoice(string ProductName, string DeviceModel, int ProductCount, int FiVahed, int TPRice)
+        public void SaveSalesInvoice(string ProductName, string DeviceModel, int ProductCount, int FiVahed, int TPRice, int ProID)
         {
             SalesInvoice salesInvoice = new SalesInvoice()
             {
@@ -63,7 +63,7 @@ namespace Aqua.MVVM.ViewModels
                 TPRice = TPRice,
                 FiVahed = FiVahed,
                 ProductCount = ProductCount,
-
+                ProID = ProID
             };
             _baseRepo.AddItem(salesInvoice);
             SalesInvoiceItem.Add(salesInvoice);

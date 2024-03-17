@@ -182,7 +182,9 @@
                     </TextBox>
                     <DataGrid Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" x:Name="membersDataGrid" Height="223" MaxHeight="650" Width="314" SelectionChanged="membersDataGrid_SelectionChanged">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="نام خانوادگی" IsReadOnly="True" Width="*" Binding="{Binding Family}"/>
+                            <DataGridTextColumn Header="کد" IsReadOnly="True" Width="*" Binding="{Binding SubCode}"/>
+                            <DataGridTextColumn Header="تلفن" IsReadOnly="True" Width="*" Binding="{Binding PhoneNumber}"/>
+                            <DataGridTextColumn Header="خانوادگی" IsReadOnly="True" Width="*" Binding="{Binding Family}"/>
                             <DataGridTextColumn Header="نام" IsReadOnly="True" Width="*" Binding="{Binding Name}"/>
                             <DataGridTextColumn x:Name="ID2" Visibility="Hidden" Header="ردیف" IsReadOnly="True" Width="auto" Binding="{Binding Id}"/>
                         </DataGrid.Columns>

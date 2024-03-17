@@ -90,5 +90,10 @@ namespace Aqua.Repository
                 }
             }
         }
+
+        public void Save()
+        {
+            db.SaveChanges();
+        }
     }
 }

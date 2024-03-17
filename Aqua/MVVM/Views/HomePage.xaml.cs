@@ -1,4 +1,5 @@
-﻿using LiveCharts;
+﻿using Aqua.MVVM.ViewModels;
+using LiveCharts;
 using LiveCharts.Wpf;
 using System;
 using System.Collections.Generic;
@@ -22,24 +23,27 @@ namespace Aqua.Pages.LoginPage
     /// </summary>
     public partial class HomePage : Page
     {
-        public SeriesCollection SeriesCollection { get; set; }
-        public string[] Labels { get; set; }
+        private BankChekViewModel bankChekViewModel;
+        private CrediteOrDetebtorViewModel crediteOrDetebtorViewModel;
         public HomePage()
         {
             InitializeComponent();
+            bankChekViewModel = new BankChekViewModel();
+            crediteOrDetebtorViewModel = new CrediteOrDetebtorViewModel();
+            DataContext = bankChekViewModel;
+            DataContext = crediteOrDetebtorViewModel;
+            ChekBindGrid();
+            CBBindGrid();
+        }
 
-            SeriesCollection = new SeriesCollection
-            {
-                new LineSeries
-                {
-                    Title = "Series 1",
-                    Values = new ChartValues<double> { 4, 6, 5, 2, 7 }
-                }
-            };
+        public void ChekBindGrid()
+        {
+            dtgShowChek.ItemsSource = bankChekViewModel.GetBankChekList();
+        }
 
-            Labels = new[] { "Jan", "Feb", "Mar", "Apr", "May" };
-
-            DataContext = this;
+        public void CBBindGrid()
+        {
+            dtgDetebtorHome.ItemsSource = crediteOrDetebtorViewModel.GetCreditorOrDetebtors();
         }
     }
 }

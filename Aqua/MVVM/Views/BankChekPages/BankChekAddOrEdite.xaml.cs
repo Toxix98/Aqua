@@ -24,6 +24,7 @@ namespace Aqua.MVVM.Views.BankChekPages
         public int UPDID = 0;
         private BankAccountViewModels _bankAccVM;
         private BankChekViewModel _bankChekViewModel;
+        public string Type = "";
         public string StatuceMessage { get; set; }
         public BankChekAddOrEdite()
         {
@@ -55,7 +56,7 @@ namespace Aqua.MVVM.Views.BankChekPages
                 else
                 {
                     _bankChekViewModel.SaveBankAccount(txtChekNumber.Text, txtChekBank.Text, Convert.ToDecimal(txtChekPrice.Value), txtAssignment.Text, txtIssuDate.Text
-                        , txtDueDate.Text, txtDescriptions.Text, UPDID);
+                        , txtDueDate.Text, txtDescriptions.Text, UPDID, Type);
 
                 }
             }
@@ -125,6 +126,16 @@ namespace Aqua.MVVM.Views.BankChekPages
                 txtDueDate.Text = ChekItem.DueDateSTR;
                 txtIssuDate.Text = ChekItem.IssueDtaeSTR;
             }
+        }
+
+        private void ckb0_Checked(object sender, RoutedEventArgs e)
+        {
+            Type = "0";
+        }
+
+        private void ckb1_Checked(object sender, RoutedEventArgs e)
+        {
+            Type = "1";
         }
     }
 }

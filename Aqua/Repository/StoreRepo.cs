@@ -21,18 +21,19 @@ namespace Aqua.Repository
         public bool UpdateStore(Store store)
         {
             db.Store.Update(store);
-            return true;
-        }
-
-        public void Save()
-        {
             db.SaveChanges();
+            return true;
         }
 
         public IEnumerable<Store> GetStoreItemByFilter(string parameter)
         {
             return db.Store.Where(p => p.Productype.Contains(parameter) || p.Description.Contains(parameter) ||
                 p.ProductName.Contains(parameter) || p.ProductCode.Contains(parameter) || p.ProductDevice.Contains(parameter)).ToList();
+        }
+
+        public void Save()
+        {
+            db.SaveChanges();
         }
     }
 }
