@@ -53,6 +53,11 @@ namespace Aqua.MVVM.ViewModels
         {
             return _baseRepo.GetItems();
         }
+
+        public IEnumerable<invoices> GetINVByFilter(string parameter)
+        {
+            return _invoiceRepo.GetInvoicesByfilter(parameter);
+        }
         public void SaveAssests(string ExpertName, string SearchNextVisitDate, string SearchDateOfWork, string CustomerName, int TotalPrice, string CustomerSubCode,
             string CustomerPhoneNumber, string Address, int InvoiceId ,int ID)
         {

@@ -78,5 +78,10 @@ namespace Aqua.Pages
                 BindGrid();
             }
         }
+
+        private void txtSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            membersDataGrid.ItemsSource = _cbViewModel.GetCrediteOrDetebtorsbyFilter(txtSearch.Text).ToList();
+        }
     }
 }

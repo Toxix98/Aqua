@@ -100,7 +100,7 @@ namespace Aqua
 
         private void btnSetting_Click(object sender, RoutedEventArgs e)
         {
-            fContainer.Navigate(new System.Uri("MVVM/Views/Settingpage.xaml", UriKind.RelativeOrAbsolute));
+            fContainer.Navigate(new System.Uri("MVVM/Views/LoginPages/Settingpage.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void btnDetebtor_Click(object sender, RoutedEventArgs e)

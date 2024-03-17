@@ -21,9 +21,6 @@ using MessageBox = System.Windows.Forms.MessageBox;
 
 namespace Aqua.Pages
 {
-    /// <summary>
-    /// Interaction logic for ChekPage.xaml
-    /// </summary>
     public partial class ChekPage : Page
     {
         private BankChekViewModel _viewModel;
@@ -82,6 +79,11 @@ namespace Aqua.Pages
                 bankChekAddOrEdite.ShowDialog();
                 BindGrid();
             }
+        }
+
+        private void txtSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            ChekDataGrid.ItemsSource = _viewModel.GetBankCheksByfilers(txtSearch.Text).ToList();
         }
     }
 }

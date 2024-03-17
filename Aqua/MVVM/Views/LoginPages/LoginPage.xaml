@@ -24,7 +24,7 @@
 
                     <Button Width="30" Height="30" Content="X" Foreground="Red" FontSize="20" Style="{StaticResource ExitButton}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="360,10,0,0" Click="Button_Click"/>
 
-                    <TextBlock Grid.Row="0" VerticalAlignment="Stretch" HorizontalAlignment="Center" Text="Aqua" FontWeight="Heavy"
+                    <TextBlock Grid.Row="0" VerticalAlignment="Stretch" HorizontalAlignment="Center" Text="Abtin" FontWeight="Heavy"
                                FontSize="50" FontFamily="Bira_PERSONAL_USE_ONLY" Margin="0 55 0 0"/>
 
                     <TextBlock Grid.Row="1" Text="نام کاربری" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="276,39,0,0" FontSize="17" FontFamily="‌Dirooz FD" FontWeight="Heavy"/>

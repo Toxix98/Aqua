@@ -19,7 +19,7 @@
                 <TextBox x:Name="txtSearch" Margin="0 0 10 0" Height="30" Width="300" Background="WhiteSmoke" Foreground="Black"
                      FontSize="15" HorizontalAlignment="Center"
                      VerticalAlignment="Center" FlowDirection="RightToLeft"
-                     VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" >
+                     VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontFamily="Dirooz FD" BorderBrush="#3a3a3a" TextChanged="txtSearch_TextChanged">
 
                     <TextBox.Resources>
                         <Style TargetType="{x:Type Border}">

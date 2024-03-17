@@ -27,5 +27,6 @@ namespace Aqua.Data
         public DbSet<BillanPlus> BillanPlus { get; set; }
         public DbSet<BillanNegetive> BillanNegetive { get; set; }
         public DbSet<CreditorOrDetebtor> CreditorOrDetebtor { get; set; }
+        public DbSet<Login> Login { get; set; }
     }
 }

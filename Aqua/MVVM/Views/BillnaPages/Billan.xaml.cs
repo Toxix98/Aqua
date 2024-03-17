@@ -1,6 +1,7 @@
 ﻿using Aqua.Data;
 using Aqua.MVVM.Models;
 using Aqua.MVVM.ViewModels;
+using Aqua.MVVM.Views.BillnaPages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,7 @@ namespace Aqua.Pages
     {
         private BillanViewModel viewModel;
         private NegBillanViewModel _NegBillanViewModel;
+        public string StatuceMessage { get; set; }
         public Billan()
         {
             InitializeComponent();
@@ -74,11 +76,16 @@ namespace Aqua.Pages
 
                     decimal FinliayPrice = PriceP - PriceN;
 
-                    MessageBox.Show("محاصبه درآمد - خرج و بدهی = " + FinliayPrice.ToString(), "پیام", MessageBoxButton.OK, MessageBoxImage.Information);
+                    PrintBillanResult printBillanResult = new PrintBillanResult();
+                    printBillanResult.txtSood.Text = PriceP.ToString();
+                    printBillanResult.txtZarar.Text = PriceN.ToString();
+                    printBillanResult.txtTotalPrice.Text = FinliayPrice.ToString();
+                    printBillanResult.ShowDialog();
                 }
                 catch (Exception ex)
                 {
-
+                    StatuceMessage = ex.Message;
+                    MessageBox.Show(StatuceMessage, "خطا", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }

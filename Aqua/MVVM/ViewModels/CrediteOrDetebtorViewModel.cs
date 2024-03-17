@@ -58,6 +58,11 @@ namespace Aqua.MVVM.ViewModels
             return _baseRepo.GetItems();
         }
 
+        public IEnumerable<CreditorOrDetebtor> GetCrediteOrDetebtorsbyFilter(string parameter)
+        {
+            return _cbRepo.GetCreditorOrDetebtorByFilter(parameter);
+        }
+
         public void SaveCreditorOrDetebtor(string name, decimal price, string type, string Date, string Decsctiptions, int ID)
         {
             if (ID == 0)

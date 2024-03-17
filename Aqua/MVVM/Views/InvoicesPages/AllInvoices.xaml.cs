@@ -1,4 +1,5 @@
-﻿using Aqua.MVVM.Models;
+﻿using Aqua.Data;
+using Aqua.MVVM.Models;
 using Aqua.MVVM.ViewModels;
 using Aqua.Pages;
 using System;
@@ -88,6 +89,11 @@ namespace Aqua.MVVM.Views.InvoicesPages
                     BindGrid();
                 }
             }
+        }
+
+        private void txtSearch_TextChanged(object sender, TextChangedEventArgs e)
+        { 
+            AllINVDataGrid.ItemsSource =  _allINVviewModel.GetINVByFilter(txtSearch.Text).ToList();
         }
     }
 }
